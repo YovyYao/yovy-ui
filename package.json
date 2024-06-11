@@ -6,7 +6,8 @@
   "scripts": {
     "docs:build": "pnpm --filter @yovy-ui/docs build",
     "docs:dev": "pnpm --filter @yovy-ui/docs dev",
-    "dev": "pnpm --filter @yovy-ui/play dev"
+    "dev": "pnpm --filter @yovy-ui/play dev",
+    "test": "echo 'todo'"
   },
   "keywords": [],
   "author": "Yovy",
