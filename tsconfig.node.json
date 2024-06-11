@@ -1,0 +1,10 @@
+{
+	"extends": "@vue/tsconfig",
+	"include": ["packages/**/**.config.ts"],
+	"compilerOptions": {
+		"composite": true,
+		"module": "ESNext",
+		"moduleResolution": "Bundler",
+		"types": ["node"]
+	}
+}

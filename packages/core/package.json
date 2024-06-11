@@ -1,0 +1,12 @@
+{
+  "name": "yovy-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "dependencies": {
+    "@yovy-ui/components": "workspace:*"
+  },
+  "keywords": [],
+  "author": "Yovy",
+  "license": "MIT"
+}

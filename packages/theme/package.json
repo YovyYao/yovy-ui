@@ -1,0 +1,11 @@
+{
+  "name": "@yovy-ui/theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.css",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
