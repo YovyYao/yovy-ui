@@ -1,4 +1,5 @@
 <script setup lang="ts">
+<<<<<<< HEAD
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types/index';
 import { defineOptions, defineProps, withDefaults, ref, defineSlots, defineExpose, defineEmits, computed, inject } from 'vue';
 import { throttle } from 'lodash-es';
@@ -38,10 +39,15 @@ const handleBtnClickThrottle = throttle(
 
 defineExpose<ButtonInstance>({
 	ref: _ref,
+=======
+defineOptions({
+	name: "YovyButton"
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 })
 </script>
 
 <template>
+<<<<<<< HEAD
 	<component
 		:is="tag"
 		ref="_ref"
@@ -83,3 +89,7 @@ defineExpose<ButtonInstance>({
 <style scoped>
 @import './style.css'
 </style>
+=======
+	<button style="background-color: blueviolet; color: brown"> YovyButton </button>
+</template>
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9

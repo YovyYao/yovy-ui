@@ -5,8 +5,11 @@ on:
     branches:
       - master
 
+<<<<<<< HEAD
   workflow_dispatch:
 
+=======
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 jobs:
   test:
     name: Run Lint and Test
@@ -46,9 +49,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+<<<<<<< HEAD
       - name: Build Components
         run: npm run build
 
+=======
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
       - name: Build docs
         run: npm run docs:build
 

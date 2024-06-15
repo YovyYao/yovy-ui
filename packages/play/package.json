@@ -1,10 +1,15 @@
 {
   "name": "@yovy-ui/play",
+<<<<<<< HEAD
+=======
+  "private": true,
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+<<<<<<< HEAD
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -20,5 +25,11 @@
     "@storybook/vue3-vite": "^8.1.8",
     "@vitejs/plugin-vue": "^5.0.4",
     "storybook": "^8.1.8"
+=======
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4"
+>>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   }
 }
