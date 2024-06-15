@@ -1,0 +1,50 @@
+{
+  "name": "@yovy-ui/workspace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "story": "pnpm run build && pnpm --filter @yovy-ui/play storybook",
+    "docs:build": "pnpm --filter @yovy-ui/docs build",
+    "docs:dev": "pnpm --filter @yovy-ui/docs dev",
+    "dev": "pnpm --filter @yovy-ui/play dev",
+    "test": "pnpm --filter @yovy-ui/components test",
+    "build": "pnpm --filter yovy-ui build"
+  },
+  "keywords": [],
+  "author": "Yovy",
+  "license": "MIT",
+  "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@popperjs/core": "^2.11.8",
+    "@types/lodash-es": "4.17.12",
+    "@types/node": "20.11.20",
+    "@vitejs/plugin-vue": "5.0.4",
+    "@vitejs/plugin-vue-jsx": "3.1.0",
+    "@vue/tsconfig": "0.5.1",
+    "async-validator": "^4.2.5",
+    "move-file-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-color-mix": "1.1.0",
+    "postcss-each": "1.1.0",
+    "postcss-each-variables": "0.3.0",
+    "postcss-for": "2.1.1",
+    "postcss-nested": "6.0.1",
+    "release-it": "^17.3.0",
+    "rimraf": "^5.0.7",
+    "typescript": "5.2.2",
+    "vite": "5.1.4",
+    "vitest": "1.4.0",
+    "vue-tsc": "1.8.27"
+  },
+  "dependencies": {
+    "@yovy-ui/hooks": "workspace:*",
+    "@yovy-ui/theme": "workspace:*",
+    "@yovy-ui/utils": "workspace:*",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.4.19",
+    "yovy-ui": "workspace:*"
+  }
+}
