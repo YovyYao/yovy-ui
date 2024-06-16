@@ -1,8 +1,5 @@
 {
-<<<<<<< HEAD
 	"extends": "@vue/tsconfig/tsconfig.dom.json",
-=======
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 	"compilerOptions": {
 		"target": "ES2020",
 		"useDefineForClassFields": true,
@@ -11,20 +8,13 @@
 		"skipLibCheck": true,
 
 		// Bundler mode
-<<<<<<< HEAD
 		"moduleResolution": "bundler",
-=======
-		"moduleResolution": "Bundler",
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 		"allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "preserve",
-<<<<<<< HEAD
 		"jsxImportSource": "vue",
-=======
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 
 		// Linting
 		"strict": true,
@@ -32,10 +22,5 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-<<<<<<< HEAD
 	"include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue"]
-=======
-	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
-	"references": [{"path": "./tsconfig.node.json"}]
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }

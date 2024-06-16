@@ -1,7 +1,6 @@
 {
   "name": "yovy-ui",
   "version": "1.0.0",
-<<<<<<< HEAD
   "description": "Components lib based Vue3 + TS by Yovy for coder to code easier",
   "type": "module",
   "main": "./dist/umd/index.umd.js",
@@ -55,14 +54,4 @@
   "peerDependencies": {
     "vue": "^3.4.19"
   }
-=======
-  "description": "",
-  "main": "index.ts",
-  "dependencies": {
-    "@yovy-ui/components": "workspace:*"
-  },
-  "keywords": [],
-  "author": "Yovy",
-  "license": "MIT"
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }

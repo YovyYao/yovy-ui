@@ -3,13 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-<<<<<<< HEAD
   "scripts": {
     "test": "vitest --coverage"
   },
-=======
-  "scripts": {},
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,12 +13,5 @@
     "@vitest/coverage-v8": "^1.4.0",
     "@vue/test-utils": "^2.4.5",
     "jsdom": "^24.0.0"
-<<<<<<< HEAD
-=======
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "async-validator": "^4.2.5"
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   }
 }

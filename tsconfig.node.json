@@ -1,19 +1,10 @@
 {
-<<<<<<< HEAD
 	"extends": "@tsconfig/node18/tsconfig.json",
-=======
-	"extends": "@vue/tsconfig",
-	"include": ["packages/**/**.config.ts"],
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 	"compilerOptions": {
 		"composite": true,
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"types": ["node"]
-<<<<<<< HEAD
 	},
 	"include": ["packages/**/**.config.ts"],
-=======
-	}
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }
