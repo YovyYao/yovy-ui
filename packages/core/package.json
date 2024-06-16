@@ -1,6 +1,6 @@
 {
   "name": "yovy-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Components lib based Vue3 + TS by Yovy for coder to code easier",
   "type": "module",
   "main": "./dist/umd/index.umd.js",
