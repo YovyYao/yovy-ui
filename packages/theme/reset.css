@@ -1,24 +1,15 @@
 body {
-<<<<<<< HEAD
   font-family: var(--yo-font-family);
   font-weight: 400;
   font-size: var(--yo-font-size-base);
   line-height: calc(var(--yo-font-size-base) * 1.2);
   color: var(--yo-text-color-primary);
-=======
-  font-family: var(--er-font-family);
-  font-weight: 400;
-  font-size: var(--er-font-size-base);
-  line-height: calc(var(--er-font-size-base) * 1.2);
-  color: var(--er-text-color-primary);
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
 a {
-<<<<<<< HEAD
   color: var(--yo-color-primary);
   text-decoration: none;
 
@@ -29,18 +20,6 @@ a {
 
   &:active {
     color: var(--yo-color-primary-dark-2);
-=======
-  color: var(--er-color-primary);
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    color: var(--er-color-primary-light-3);
-  }
-
-  &:active {
-    color: var(--er-color-primary-dark-2);
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
   }
 }
 
@@ -50,13 +29,8 @@ h3,
 h4,
 h5,
 h6 {
-<<<<<<< HEAD
   color: var(--yo-text-color-regular);
   font-weight: inhyoit;
-=======
-  color: var(--er-text-color-regular);
-  font-weight: inherit;
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 
   &:first-child {
     margin-top: 0;
@@ -68,7 +42,6 @@ h6 {
 }
 
 h1 {
-<<<<<<< HEAD
   font-size: calc(var(--yo-font-size-base) + 6px);
 }
 
@@ -78,28 +51,13 @@ h2 {
 
 h3 {
   font-size: calc(var(--yo-font-size-base) + 2px);
-=======
-  font-size: calc(var(--er-font-size-base) + 6px);
-}
-
-h2 {
-  font-size: calc(var(--er-font-size-base) + 4px);
-}
-
-h3 {
-  font-size: calc(var(--er-font-size-base) + 2px);
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }
 
 h4,
 h5,
 h6,
 p {
-<<<<<<< HEAD
   font-size: inhyoit;
-=======
-  font-size: inherit;
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }
 
 p {
@@ -116,29 +74,16 @@ p {
 
 sup,
 sub {
-<<<<<<< HEAD
   font-size: calc(var(--yo-font-size-base) - 1px);
 }
 
 small {
   font-size: calc(var(--yo-font-size-base) - 2px);
-=======
-  font-size: calc(var(--er-font-size-base) - 1px);
-}
-
-small {
-  font-size: calc(var(--er-font-size-base) - 2px);
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }
 
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
-<<<<<<< HEAD
   bordyo: 0;
   bordyo-top: 1px solid var(--yo-bordyo-color-lightyo);
-=======
-  border: 0;
-  border-top: 1px solid var(--er-border-color-lighter);
->>>>>>> cfac2cb25c3cd0797e12721fe950de9ff98d6ff9
 }
