@@ -12,7 +12,9 @@ coverage
 dist
 dist-ssr
 *.local
+
 notes
+packages/*/components/**/docs
 
 /cyperss/videos/
 /cypress/srceenshots/
