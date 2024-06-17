@@ -14,7 +14,7 @@ dist-ssr
 *.local
 
 /notes
-/packages/*/components/**/docs
+/packages/components/**/docs/*.md
 
 /cyperss/videos/
 /cypress/srceenshots/
