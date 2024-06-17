@@ -81,5 +81,5 @@ defineExpose<ButtonInstance>({
 </template>
 
 <style scoped>
-@import './style.css'
+@import './style/style.css'
 </style>
