@@ -1,16 +1,14 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { fn, within, userEvent, expect, clearAllMocks } from '@storybook/test';
-
-import {
-  YoButton,
-  YoButtonGroup
-} from 'yovy-ui';
 import { set } from 'lodash-es';
+
+import { YoButton, YoButtonGroup } from 'yovy-ui';
+import 'yovy-ui/dist/theme/Button.css'
 
 type Story = StoryObj<typeof YoButton> & { argsTypes?: ArgTypes };
 
 const meta: Meta<typeof YoButton> = {
-	title: 'Example/Button',
+	title: 'Components/Button',
   component: YoButton,
   tags: ["autodocs"],
 	argTypes: {
@@ -60,7 +58,7 @@ const meta: Meta<typeof YoButton> = {
       control: { type: 'boolean' },
     },
   },
-  args: { onClick: fn()},
+  args: { onClick: fn() },
 }
 
 /**
@@ -144,7 +142,7 @@ export const Default: Story & { args: { content: string } } = {
     )
 
     await step(
-      "When loading is set be true, the conClick can not be called",
+      "When loading is set be true, the onClick can not be called",
       async () => {
         set(args, "loading", true)
         await userEvent.click(btn)

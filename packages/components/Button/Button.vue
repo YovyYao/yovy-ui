@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types/index';
-import { defineOptions, defineProps, withDefaults, ref, defineSlots, defineExpose, defineEmits, computed, inject } from 'vue';
+import { ref, computed, inject } from 'vue';
 import { throttle } from 'lodash-es';
 import YoIcon from '../Icon/Icon.vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants/index';
@@ -27,7 +27,6 @@ const iconStyle = computed(() => ({
 	marginRight: slots.default ? "6px" : "0px"
 }))
 
-// 不节流,直接执行下面的函数
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
 // useThrottle: true, 执行节流后封装的函数
 const handleBtnClickThrottle = throttle(
@@ -81,5 +80,5 @@ defineExpose<ButtonInstance>({
 </template>
 
 <style scoped>
-@import './style/style.css'
+@import './style.css'
 </style>

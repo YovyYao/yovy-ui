@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ButtonGroupProps } from './types/index';
-import { defineOptions, defineProps, provide, reactive, toRef } from 'vue';
+import { provide, reactive, toRef } from 'vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants/index';
 
 defineOptions({
@@ -25,5 +25,5 @@ provide(
 </template>
 
 <style scoped>
-@import './style/style.css'
+@import './style.css'
 </style>
