@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonProps, ButtonEmits, ButtonInstance } from './types/index';
+import type { ButtonProps, ButtonEmits, ButtonInstance } from './types';
 import { ref, computed, inject } from 'vue';
 import { throttle } from 'lodash-es';
 import YoIcon from '../Icon/Icon.vue';
