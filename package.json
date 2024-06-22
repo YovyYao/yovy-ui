@@ -46,6 +46,7 @@
     "@yovy-ui/hooks": "workspace:*",
     "@yovy-ui/theme": "workspace:*",
     "@yovy-ui/utils": "workspace:*",
+    "@yovy-ui/components": "workspace:*",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19",
     "yovy-ui": "workspace:*"

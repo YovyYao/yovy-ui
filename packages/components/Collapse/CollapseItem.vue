@@ -2,8 +2,8 @@
 import type { CollapseItemProps } from './types';
 import { inject, computed } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constant';
-import YoIcon from '../Icon/Icon.vue'
-import transitionEvents from './transitionEvents'
+import { YoIcon } from '@yovy-ui/components';
+import transitionEvents from './transitionEvents';
 
 defineOptions({
 	name: "YoCollapseItem"

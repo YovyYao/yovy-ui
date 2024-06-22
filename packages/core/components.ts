@@ -6,6 +6,7 @@ import {
 	YoIcon,
 	YoCollapse,
 	YoCollapseItem,
+	YoAlert,
 } from '@yovy-ui/components';
 
 export default [
@@ -14,4 +15,5 @@ export default [
 	YoButtonGroup,
 	YoCollapse,
 	YoCollapseItem,
+	YoAlert,
 ] as Plugin[]
