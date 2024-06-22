@@ -2,7 +2,7 @@
 import type { AlertProps, AlertEmits, AlertInstance } from './types';
 import { iconTypeMap } from '@yovy-ui/utils';
 import { ref, computed } from 'vue';
-import { YoIcon } from '@yovy-ui/components';
+import YoIcon from '../Icon/Icon.vue';
 
 defineOptions({
 	name: "YoAlert"

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter @yovy-ui/play dev",
     "story": "pnpm --filter @yovy-ui/play storybook",
+    "sb:build": "pnpm --filter @yovy-ui/play build:storybook",
     "docs:build": "pnpm --filter @yovy-ui/docs build",
     "docs:dev": "pnpm --filter @yovy-ui/docs dev",
     "test": "cross-env NODE_ENV=test pnpm --filter @yovy-ui/components test",

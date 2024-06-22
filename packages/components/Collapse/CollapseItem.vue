@@ -2,7 +2,7 @@
 import type { CollapseItemProps } from './types';
 import { inject, computed } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constant';
-import { YoIcon } from '@yovy-ui/components';
+import YoIcon from '../Icon/Icon.vue';
 import transitionEvents from './transitionEvents';
 
 defineOptions({

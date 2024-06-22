@@ -2,7 +2,7 @@
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types';
 import { ref, computed, inject } from 'vue';
 import { throttle } from 'lodash-es';
-import { YoIcon } from '@yovy-ui/components';
+import YoIcon from '../Icon/Icon.vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants/index';
 
 defineOptions({
