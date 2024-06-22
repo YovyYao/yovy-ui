@@ -18,6 +18,7 @@
         <div>内容4</div>
       </yo-collapse-item>
     </yo-collapse>
+    <yo-alert type="success" title="标题" description="描述" show-icon closeable visable> </yo-alert>
   </div>
 </template>
 

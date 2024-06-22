@@ -38,12 +38,13 @@ export const Default: Story & { args: { visible: boolean } } = {
 		effect: "light",
 		closable: true,
 		showIcon: true,
-		visible: true,
+		visible: false,
 	},
 	render: (args) => ({
 		components: { YoAlert },
 		setup() {
 			const alertRef = ref<AlertInstance>();
+			const a = ref()
 			watch(
 				() => (args as any).visible,
 				(value: boolean) => {
@@ -54,12 +55,16 @@ export const Default: Story & { args: { visible: boolean } } = {
 					}
 				}
 			)
-			return { args, alertRef }
+			return { args, alertRef, a }
+		},
+		mounted() {
+			console.log('storybook:dev', args);
 		},
 		template: `
-			<yo-alert refs="alertRef" v-bind="args"></yo-alert>
-		`
-	})
+			<yo-alert ref="alertRef" v-bind="args"></yo-alert>
+			<div ref="a">666</div>
+		`,
+	}),
 }
 
 export default meta;
