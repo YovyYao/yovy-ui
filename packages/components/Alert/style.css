@@ -25,7 +25,7 @@
   align-items: center;
   transition: opacity var(--yo-transition-duration);
   margin-top: var(--yo-alert-top-margin);
-  .er-alert__icon {
+  .yo-alert__icon {
     color: var(--yo-alert-text-color);
     font-size: var(--yo-alert-icon-size);
     width: var(--yo-alert-icon-size);
@@ -39,7 +39,7 @@
   .yo-alert__content {
     color:  var(--yo-alert-text-color);
     vertical-align: text-top;
-    .er-alert__title{
+    .yo-alert__title{
       font-size: var(--yo-alert-title-font-size);
       line-height: 24px;
       &.with-desc {
@@ -58,17 +58,17 @@
       top: 12px;
       right: 15px;
       cursor: pointer;
-      :deep(.er-icon) {
+      :deep(.yo-icon) {
         vertical-align: top;
       }
     }
     &.yo-alert__light {
-      .er-alert__close {
+      .yo-alert__close {
         color: var(--yo-text-color-placeholder);
       }
     }
     &.yo-alert__dark {
-      .er-alert__close {
+      .yo-alert__close {
         color: var(--yo-color-white);
       }
     }
@@ -89,11 +89,11 @@
 }
 
 @each $val in success,warning,info,danger { 
-  .yo-alert__$(val).er-alert__light {
+  .yo-alert__$(val).yo-alert__light {
     --yo-alert-text-color: var(--yo-color-$(val));
     --yo-alert-bg-color: var(--yo-color-$(val)-light-9);
   }
-  .yo-alert__$(val).er-alert__dark {
+  .yo-alert__$(val).yo-alert__dark {
     --yo-alert-text-color: var(--yo-color-white);
     --yo-alert-bg-color: var(--yo-color-$(val));
   }
