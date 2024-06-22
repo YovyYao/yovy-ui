@@ -8,7 +8,7 @@ defineOptions({
 
 <template>
 	<div class="yo-alert">
-
+		<slot></slot>
 	</div>
 </template>
 
