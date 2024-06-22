@@ -57,9 +57,6 @@ export const Default: Story & { args: { visible: boolean } } = {
 			)
 			return { args, alertRef, a }
 		},
-		mounted() {
-			console.log('storybook:dev', args);
-		},
 		template: `
 			<yo-alert ref="alertRef" v-bind="args"></yo-alert>
 			<div ref="a">666</div>
