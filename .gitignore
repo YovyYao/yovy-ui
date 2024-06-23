@@ -13,9 +13,6 @@ dist
 dist-ssr
 *.local
 
-/notes
-/packages/components/**/docs/*.md
-
 /cyperss/videos/
 /cypress/srceenshots/
 
