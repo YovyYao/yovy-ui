@@ -10,7 +10,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '开始使用', link: '../get-started.md' },
-      { text: '组件', link: '/components/button' }
+      { text: '组件', link: './components/button' }
     ],
     search: {
       provider: 'local',
