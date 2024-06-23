@@ -9,22 +9,33 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '开始使用', link: '../get-started.md' },
+      { text: '组件', link: '/components/button' }
     ],
-
+    search: {
+      provider: 'local',
+    },
     sidebar: [
       {
-        text: 'Examples',
+        text: '指南',
+        collapsed: false,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
+          { text: '快速开始', link: '../get-started.md' },
+        ],
+      },
+      {
+        text: '组件',
+        collapsed: false,
+        items: [
+          { text: 'Alert', link: '/components/alert' },
+          { text: 'Button', link: '/components/button' },
+          { text: 'Collapse', link: '/components/collapse' },
+          { text: 'Icon', link: '/components/icon' },
+        ],
+      },
     ],
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/YovyYao/yovy-ui' }
     ]
   },
   markdown: {
