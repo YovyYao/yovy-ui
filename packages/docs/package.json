@@ -1,5 +1,5 @@
 {
-  "private":"true",
+  "private": "true",
   "name": "@yovy-ui/docs",
   "version": "1.0.0",
   "description": "",
@@ -14,5 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^1.0.0-rc.44"
+  },
+  "dependencies": {
+    "@vitepress-demo-preview/plugin": "^1.2.3"
   }
 }
