@@ -59,7 +59,6 @@ export const Default: Story & { args: { visible: boolean } } = {
 		},
 		template: `
 			<yo-alert ref="alertRef" v-bind="args"></yo-alert>
-			<div ref="a">666</div>
 		`,
 	}),
 }
