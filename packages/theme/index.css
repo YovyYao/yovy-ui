@@ -31,8 +31,8 @@
 		--yo-color-$(val): $(color);
 		@for $i from 3 to 9 {
 			--yo-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+			--yo-color-$(val)-dark-$(i): darken($(color), $i * 10%);
 		}
-		--yo-color-$(val)-dark-$(i): darken($(color), $i * 10%);
 	}
 
 	/* border */
