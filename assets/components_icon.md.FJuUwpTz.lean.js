@@ -1,0 +1,1 @@
+import{_ as e,b as t,a as o}from"./chunks/framework.DtPGKTTa.js";const d=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/icon.md","filePath":"components/icon.md"}'),n={name:"components/icon.md"};function a(c,s,r,i,p,m){return o(),t("div")}const f=e(n,[["render",a]]);export{d as __pageData,f as default};
