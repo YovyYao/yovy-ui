@@ -1,28 +1,24 @@
 ---
 title: Button
-description: Button 组件文档
-
-next:
-	link: /components/icon
-	text: Icon 图标
+description: Button组件文档
 
 prev:
-	link: /components/alert
+  link: /components/alert
 	text: Alert 消息提示
 
+next:
+  link: /components/collapse
+  text: Collapse 图标
 ---
 
-
 # Button 按钮
-
-常用的按钮
 
 ## 基础用法
 
 使用 `type` 属性来定义 Button 的类型，支持 `primary`、`success`、`warning`、`danger` 四种类型，默认为 `default`。
 
 ::: preview
-demo-preview=../demo/button/Base.vue
+demo-preview=../demo/button/Basic.vue
 :::
 
 ## 禁用状态
@@ -56,8 +52,6 @@ demo-preview=../demo/button/Icon.vue
 ::: preview
 demo-preview=../demo/button/Size.vue
 :::
-
-
 
 ## 按钮组合
 
@@ -105,4 +99,3 @@ demo-preview=../demo/button/Throttle.vue
 | plain | 是否朴素按钮 | `boolean` | `false` |
 | round | 是否圆角按钮 | `boolean` | `false` |
 | circle | 是否圆形按钮 | `boolean` | `false` |
-
