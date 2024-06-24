@@ -1,16 +1,16 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
 import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Yovy-Plus",
+  title: "YovyPlus",
   description: "Easy components for coder",
   base: "/yovy-ui/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '开始使用', link: '../get-started.md' },
-      { text: '组件', link: './components/button' }
+      { text: '开始使用', link: '/guide/get-started' },
+      { text: '组件', link: '/components/alert' }
     ],
     search: {
       provider: 'local',
@@ -20,7 +20,7 @@ export default defineConfig({
         text: '指南',
         collapsed: false,
         items: [
-          { text: '快速开始', link: '../get-started.md' },
+          { text: '快速开始', link: '/guide/get-started' },
         ],
       },
       {

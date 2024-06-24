@@ -5,11 +5,11 @@ layout: home
 hero:
   name: "Yovy-Plus"
   text: "Easy components for coder"
-  tagline: My great project tagline
+  tagline: 一款“开箱即用”的组件库
   actions:
     - theme: brand
       text: 开始使用
-      link: /get-started
+      link: ./guide/get-started
 
 features:
   - icon: 🍔
@@ -18,4 +18,10 @@ features:
   - icon: 📦
     title: 开箱即用，非常容易上手
     details: 组件库完全兼容Element Plus的所有组件，并且提供了与Element Plus相同的API，使用起来非常简单，非常容易上手。
+  - icon: 🎈
+    title: 小体积，大用处
+    details: 轻量级，仅 1.5kb，支持 SSR，支持按需引入，支持 TypeScript，支持 Vue 2 和 Vue 3。
+  - icon: 🎨
+    title: 优雅的样式
+    details: 好看又好玩的样式，拥有非常多的交互，你可以在YovyPlus中拥有无限的快乐。
 ---
