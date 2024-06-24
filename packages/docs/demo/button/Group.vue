@@ -3,7 +3,7 @@
     <yo-button-group disabled>
       <yo-button type="primary" icon="arrow-left">Previous Page</yo-button>
       <yo-button type="primary">
-        Next Page<er-icon icon="arrow-right" style="margin-left: 8px" />
+        Next Page<yo-icon icon="arrow-right" style="margin-left: 8px" />
       </yo-button>
     </yo-button-group>
   </p>
