@@ -18,7 +18,7 @@ export function throwError(scope: string, message: string): void {
 }
 
 /**
- * 热重载函数
+ * 函数重载
  */
 export function debugWarn(error: Error): void;
 export function debugWarn(scope: string, message: string): void;
