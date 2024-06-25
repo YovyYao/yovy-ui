@@ -49,6 +49,9 @@
     "@yovy-ui/theme": "workspace:*",
     "@yovy-ui/utils": "workspace:*",
     "@yovy-ui/components": "workspace:*",
+    "@vitest/coverage-v8":"^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "jsdom": "^24.0.0",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19",
     "yovy-ui": "workspace:*"

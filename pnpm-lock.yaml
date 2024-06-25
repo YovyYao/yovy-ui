@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@vitest/coverage-v8':
+        specifier: ^1.4.0
+        version: 1.6.0(vitest@1.4.0(@types/node@20.11.20)(jsdom@24.1.0)(terser@5.31.1))
+      '@vue/test-utils':
+        specifier: ^2.4.5
+        version: 2.4.6
       '@yovy-ui/components':
         specifier: workspace:*
         version: link:packages/components
@@ -20,6 +26,9 @@ importers:
       '@yovy-ui/utils':
         specifier: workspace:*
         version: link:packages/utils
+      jsdom:
+        specifier: ^24.0.0
+        version: 24.1.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -106,17 +115,7 @@ importers:
         specifier: 1.8.27
         version: 1.8.27(typescript@5.2.2)
 
-  packages/components:
-    devDependencies:
-      '@vitest/coverage-v8':
-        specifier: ^1.4.0
-        version: 1.6.0(vitest@1.4.0(@types/node@20.11.20)(jsdom@24.1.0)(terser@5.31.1))
-      '@vue/test-utils':
-        specifier: ^2.4.5
-        version: 2.4.6
-      jsdom:
-        specifier: ^24.0.0
-        version: 24.1.0
+  packages/components: {}
 
   packages/core:
     dependencies:
@@ -8560,7 +8559,7 @@ snapshots:
   '@vue/test-utils@2.4.6':
     dependencies:
       js-beautify: 1.15.1
-      vue-component-type-helpers: 2.0.21
+      vue-component-type-helpers: 2.0.22
 
   '@vue/tsconfig@0.5.1': {}
 
