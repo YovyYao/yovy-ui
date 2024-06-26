@@ -2,7 +2,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { throwError, debugWarn } from '../error';
 
-describe('error', () => {
+describe('@yovy-ui/utils/error', () => {
 	it('throwError should be worked', () => {
 		expect(() => {
 			throwError('scope', 'message');
