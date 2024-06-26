@@ -25,7 +25,7 @@ const compB = withInstall(defineComponent({
 	}
 }))
 
-describe('install', () => {
+describe('@yovy-ui/utils/install', () => {
 	it('withInstall should be worked', () => {
 		const wrapper = mount(() => <div id='app'></div>)
 		const app = createApp(AppComp)

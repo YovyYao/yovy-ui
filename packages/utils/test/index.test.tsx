@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { debugWarn, throwError, withInstall, makeInstaller, iconTypeMap } from '..';
 import { each } from 'lodash-es';
 
-describe('utils', () => {
+describe('@yovy-ui/utils', () => {
 	it('debugWarn should be exported', () => {
 		expect(debugWarn).toBeDefined();
 	})
