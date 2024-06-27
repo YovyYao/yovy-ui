@@ -43,11 +43,11 @@
     "shelljs": "^0.8.5",
     "typescript": "5.2.2",
     "vite": "5.1.4",
-    "vitest": "1.6.0",
+    "vitest": "1.4.0",
     "vue-tsc": "1.8.27"
   },
   "dependencies": {
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "^1.4.0",
     "@vue/test-utils": "^2.4.5",
     "@yovy-ui/components": "workspace:*",
     "@yovy-ui/hooks": "workspace:*",
