@@ -30,14 +30,14 @@ describe('@yovy-ui/utils/install', () => {
 		const wrapper = mount(() => <div id='app'></div>)
 		const app = createApp(AppComp)
 
-		app.use(compA).use(compB).mount(wrapper.element)
+		app.use(compA).mount(wrapper.element)
 
 		// 期望组件A和组件B上有 install()
 		expect(compA.install).toBeDefined()
 		expect(compB.install).toBeDefined()
 		// 期望能在模板中找到组件A和组件B
-		expect(wrapper.findComponent(compA)).toBeTruthy()
-		expect(wrapper.findComponent(compB)).toBeTruthy()
+		expect(app._context.components['CompA']).toBeTruthy()
+		expect(app._context.components['CompB']).toBeFalsy()
 	})
 
 	it('makeInstaller should be worked', () => {
