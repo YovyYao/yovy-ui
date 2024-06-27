@@ -3,6 +3,8 @@ import { mount } from '@vue/test-utils';
 import type { AlertType } from '../types';
 import Alert from '../Alert.vue';
 import Icon from '../../Icon/Icon.vue';
+import { YoAlert } from '../index';
+import { withInstall } from '@yovy-ui/utils';
 
 describe("Alert.vue", () => {
 	const title = "Test Alert" as const
@@ -137,5 +139,22 @@ describe("Alert.vue", () => {
 		expect(wrapper.find(".yo-alert").attributes().style).toBe("display: none;")
 		await wrapper.vm.open()
 		expect(wrapper.find(".yo-alert").attributes().style).toBe("")
+	})
+})
+
+describe('Alert/index', () => {
+	it('should be exported with withInstall()', () => {
+		expect(YoAlert.install).toBeDefined()
+	})
+	it('should be exported', () => {
+		expect(YoAlert).toBe(Alert)
+	})
+	it('should enhance Alert component', () => {
+		const enhanceAlert = withInstall(Alert)
+		expect(enhanceAlert).toBe(YoAlert)
+	})
+	it('should apply specific enhance', () => {
+		const enhanceAlert = withInstall(Alert)
+		expect(enhanceAlert).toHaveProperty('install')
 	})
 })

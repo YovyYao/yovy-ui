@@ -10,7 +10,9 @@
     "docs:build": "pnpm --filter @yovy-ui/docs build",
     "docs:dev": "pnpm --filter @yovy-ui/docs dev",
     "docs:preview": "pnpm --filter @yovy-ui/docs preview",
-    "test": "cross-env NODE_ENV=test pnpm --filter @yovy-ui/components test",
+    "test": "run-p test:utils test:comp",
+    "test:utils": "cross-env NODE_ENV=test pnpm --filter @yovy-ui/utils test",
+    "test:comp": "cross-env NODE_ENV=test pnpm --filter @yovy-ui/components test",
     "build": "cross-env NODE_ENV=production pnpm --filter yovy-ui build",
     "build:dev": "cross-env NODE_ENV=development pnpm --filter yovy-ui build:watch"
   },
