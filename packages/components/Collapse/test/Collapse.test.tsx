@@ -3,7 +3,7 @@ import { DOMWrapper, mount, VueWrapper } from '@vue/test-utils';
 
 import Collapse from '../Collapse.vue';
 import CollapseItem from '../CollapseItem.vue';
-import transitionEvents from '../utils/transitionEvents'
+import transitionEvents from '../utils/transitionEvents';
 
 const onChange = vi.fn()
 
