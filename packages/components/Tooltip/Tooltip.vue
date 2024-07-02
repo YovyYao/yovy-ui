@@ -5,12 +5,18 @@ import { debounce, type DebouncedFunc, bind, isNil } from 'lodash-es';
 import { createPopper, type Instance } from '@popperjs/core';
 import { clickOutsideElement } from './utils';
 
+// 是否开启虚拟触发
+interface _TooltipProps extends TooltipProps {
+	virtualRef?: HTMLElement | void
+	virtualTriggering?: boolean
+}
+
 defineOptions({
 	name: 'YoTooltip'
 })
 
 // 定义props, 并给某些字段提供默认值
-const props = withDefaults(defineProps<TooltipProps>(), {
+const props = withDefaults(defineProps<_TooltipProps>(), {
 	placement: 'bottom',
 	trigger: 'hover',
 	transition: 'fade',
@@ -33,9 +39,18 @@ const dropdownEvents: Ref<Record<string, EventListener>> = ref({})
 // 容器节点
 const containerNode = ref<HTMLElement>()
 // 触发节点
-const triggerNode = ref<HTMLElement>()
+const _triggerNode = ref<HTMLElement>()
 // popper相关的DOM节点
 const popperNode = ref<HTMLElement>()
+
+const triggerNode = computed(() => {
+	if (props.virtualTriggering) {
+		return (
+			(props.virtualRef as HTMLElement) ?? _triggerNode.value
+		)
+	}
+	return _triggerNode.value as HTMLElement
+})
 
 // 定义popper.js的位移, 偏移量等配置项
 const popperOptions = computed(() => ({
@@ -209,11 +224,13 @@ defineExpose<TooltipInstance>({
 	<div class="yo-tooltip" ref="containerNode" v-on="outerEvents">
 		<div
 			class="yo-tooltip__trigger"
-			ref="triggerNode"
+			ref="_triggerNode"
 			v-on="events"
+			v-if="!virtualTriggering"
 		>
 			<slot></slot>
 		</div>
+		<slot name="default" v-else></slot>
 		<transition :name="transition" @after-leave="destroyPopperInstance">
 			<div
 				class="yo-tooltip__popper"
