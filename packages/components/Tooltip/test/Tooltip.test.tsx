@@ -1,4 +1,4 @@
-import { describe, test, expect, vi, it, beforeEach, expectTypeOf } from 'vitest';
+import { describe, test, expect, vi, it, beforeEach } from 'vitest';
 import { withInstall } from '@yovy-ui/utils';
 import { mount } from '@vue/test-utils';
 import Tooltip from '../Tooltip.vue';
@@ -39,48 +39,65 @@ describe('Tooltip.vue', () => {
 			() => (
 				<div>
 					<div id='outside'></div>
-					<Tooptip
+					<Tooltip
 						content='this is a tooltip'
 						trigger='click'
 						{...{onVisibleChange}}
 					>
 						<button id='trigger'>这是一个按钮</button>
-					</Tooptip>
+					</Tooltip>
 				</div>
 			),
 			{
 				attachTo: document.body,
 			},
 		)
+		
+		// 获得模板中的DOM结构
 		const triggerArea = wrapper.find('#trigger')
-		expect(triggerArea.exists()).toBe(true)
+		// 触发Tooltip的区域存在
+		expect(triggerArea.exists()).toBeTruthy()
+		// 未点击时, yo-tooltip__popper(Tooltip组件)不存在
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
 
+		// 触发click事件
 		triggerArea.trigger('click')
+		// 等待动画结束
 		await vi.runAllTimers()
+		// 预期Tooltip组件存在
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
+		// 预期Tooltip组件的内容是'this is a tooltip'
 		expect(wrapper.get(".yo-tooltip__popper").text()).toBe('this is a tooltip')
+		// 预期onVisibleChange()函数会被调用
 		expect(onVisibleChange).toHaveBeenCalledWith(true)
 
+		// 再次点击触发区域
 		triggerArea.trigger('click')
+		// 等待动画结束
 		await vi.runAllTimers()
+		// 预期Tooltip组件不存在
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+		// 预期onVisibleChange()函数已经被调用了两次
 		expect(onVisibleChange).toHaveBeenCalledTimes(2)
 
 		await vi.runAllTimers()
+		// 再次点击触发区域
 		triggerArea.trigger('click')
 		await vi.runAllTimers()
+		// 预期Tooltip组件存在
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
 
-		// 区域外点击, 则关闭Tooltip
+		// 区域外点击, 预期关闭Tooltip
 		wrapper.get('#outside').trigger('click')
 		await vi.runAllTimers()
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
 		expect(onVisibleChange).toHaveBeenCalledTimes(4)
 
+		// 卸载模板的DOM结构
 		wrapper.unmount()
 	})
 
+	// 测试Tooltip显示后, 鼠标悬停在Tooltip上的结果(预期Tooltip不会消失)
 	test('tooltip with hover trigger', async () => {
 		const wrapper = mount(Tooltip, {
 			props: {
@@ -88,10 +105,13 @@ describe('Tooltip.vue', () => {
 				content: "tooltip test",
 			},
 		})
+		// 让Tooltip触发mouseenter事件
 		wrapper.find(".yo-tooltip__trigger").trigger("mouseenter")
+		// 等待动画加载完毕
 		await vi.runAllTimers()
+		// 预期Tooltip显示
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
-		// 鼠标离开后Tooltip隐藏
+		// Tooltip触发mouseleave事件后, 预期Tooltip消失
 		wrapper.find(".yo-tooltip__popper").trigger("mouseleave")
 		await vi.runAllTimers()
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
