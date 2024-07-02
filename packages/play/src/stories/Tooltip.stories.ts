@@ -47,7 +47,20 @@ export const Default: Story = {
 	render: (args) => ({
 		components: { YoTooltip },
 		setup() {
-
-		}
+			return args
+		},
+		template: `
+		<yo-tooltip
+			class="yo-tooltip" 
+			:content="content"
+			:placement="placement"
+			:trigger="trigger"
+			@visibleChange="onVisibleChange"
+			data-testid="story-test-tooltip"
+		>
+			<button>Hover me</button>
+		</yo-tooltip>
+		`
 	})
 }
+export default meta
