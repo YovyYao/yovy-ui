@@ -80,5 +80,3 @@ export function eventsOnTriggerNode(
 		watchEventsStopHandle?.()
 	})
 }
-
-export default eventsOnTriggerNode

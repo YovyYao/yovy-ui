@@ -102,7 +102,7 @@ describe('Tooltip.vue', () => {
 		const wrapper = mount(Tooltip, {
 			props: {
 				trigger: "hover",
-				content: "tooltip test",
+				content: "test",
 			},
 		})
 		// 让Tooltip触发mouseenter事件
@@ -144,6 +144,7 @@ describe('Tooltip.vue', () => {
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
 	})
 
+	// 虚拟节点触发
 	test('tooltip with virtual trigger node', async () => {
 		const virtualRef = document.createElement('div')
 		const wrapper = mount(Tooltip, {
