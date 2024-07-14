@@ -211,9 +211,9 @@ watch(
 	() => props.trigger,
 	(newValue, oldValue) => {
 		if (newValue === oldValue) return
-		// openDebounce?.cancel()
-		// visible.value = false
-		// emits('visible-change', false)
+		openDebounce?.cancel()
+		visible.value = false
+		emits('visible-change', false)
 		resetEvents()
 	}
 )

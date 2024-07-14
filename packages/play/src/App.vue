@@ -19,6 +19,9 @@
       </yo-collapse-item>
     </yo-collapse>
     <yo-alert type="success" title="标题" description="描述" show-icon closeable visable> </yo-alert>
+    <yo-tooltip content="提示文字" placement="top" trigger="hover">
+      <button>Hover Me</button>
+    </yo-tooltip>
   </div>
 </template>
 

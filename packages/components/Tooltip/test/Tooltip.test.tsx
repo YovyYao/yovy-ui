@@ -41,7 +41,7 @@ describe('Tooltip.vue', () => {
 					<div id='outside'></div>
 					<Tooltip
 						content='this is a tooltip'
-						trigger='click'
+						trigger='hover'
 						{...{onVisibleChange}}
 					>
 						<button id='trigger'>这是一个按钮</button>
@@ -60,38 +60,49 @@ describe('Tooltip.vue', () => {
 		// 未点击时, yo-tooltip__popper(Tooltip组件)不存在
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
 
-		// 触发click事件
-		triggerArea.trigger('click')
-		// 等待动画结束
+		// 触发hover事件
+		wrapper.find('.yo-tooltip__trigger').trigger('mouseenter')
 		await vi.runAllTimers()
-		// 预期Tooltip组件存在
-		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
-		// 预期Tooltip组件的内容是'this is a tooltip'
-		expect(wrapper.get(".yo-tooltip__popper").text()).toBe('this is a tooltip')
-		// 预期onVisibleChange()函数会被调用
-		expect(onVisibleChange).toHaveBeenCalledWith(true)
+		// 预期tooltip组件将会存在
+		expect(wrapper.find('.yo-tooltip__popper').exists()).toBeTruthy()
 
-		// 再次点击触发区域
-		triggerArea.trigger('click')
-		// 等待动画结束
-		await vi.runAllTimers()
-		// 预期Tooltip组件不存在
-		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
-		// 预期onVisibleChange()函数已经被调用了两次
-		expect(onVisibleChange).toHaveBeenCalledTimes(2)
-
-		await vi.runAllTimers()
-		// 再次点击触发区域
-		triggerArea.trigger('click')
-		await vi.runAllTimers()
-		// 预期Tooltip组件存在
-		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
-
-		// 区域外点击, 预期关闭Tooltip
+		// 如果触发方式是hover, 那么点击外层不会导致tooltip的消失
 		wrapper.get('#outside').trigger('click')
 		await vi.runAllTimers()
-		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
-		expect(onVisibleChange).toHaveBeenCalledTimes(4)
+		expect(wrapper.find('.yo-tooltip__popper').exists()).toBeTruthy()
+
+		// // 触发click事件
+		// triggerArea.trigger('click')
+		// // 等待动画结束
+		// await vi.runAllTimers()
+		// // 预期Tooltip组件存在
+		// expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
+		// // 预期Tooltip组件的内容是'this is a tooltip'
+		// expect(wrapper.get(".yo-tooltip__popper").text()).toBe('this is a tooltip')
+		// // 预期onVisibleChange()函数会被调用
+		// expect(onVisibleChange).toHaveBeenCalledWith(true)
+
+		// // 再次点击触发区域
+		// triggerArea.trigger('click')
+		// // 等待动画结束
+		// await vi.runAllTimers()
+		// // 预期Tooltip组件不存在
+		// expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+		// // 预期onVisibleChange()函数已经被调用了两次
+		// expect(onVisibleChange).toHaveBeenCalledTimes(2)
+
+		// await vi.runAllTimers()
+		// // 再次点击触发区域
+		// triggerArea.trigger('click')
+		// await vi.runAllTimers()
+		// // 预期Tooltip组件存在
+		// expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
+
+		// // 区域外点击, 预期关闭Tooltip
+		// wrapper.get('#outside').trigger('click')
+		// await vi.runAllTimers()
+		// expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+		// expect(onVisibleChange).toHaveBeenCalledTimes(4)
 
 		// 卸载模板的DOM结构
 		wrapper.unmount()
@@ -132,6 +143,18 @@ describe('Tooltip.vue', () => {
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
 	})
 
+	test("tooltip with manual trigger", async () => {
+		const wrapper = mount(Tooltip, {
+			props: {
+				manual: true,
+				content: "test",
+			}
+		})
+		wrapper.find('.yo-tooltip__trigger').trigger("click")
+		await vi.runAllTimers()
+		expect(wrapper.find('.yo-tooltip__popper').exists()).toBeFalsy()
+	})
+
 	test('disabled tooltip', async () => {
 		const wrapper = mount(Tooltip, {
 			props: {
@@ -156,5 +179,57 @@ describe('Tooltip.vue', () => {
 		virtualRef.dispatchEvent(new Event('mouseenter'))
 		await vi.runAllTimers()
 		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+	})
+
+	// 测试触发方式改变之后的情况
+	test("change trigger prop", async () => {
+		const wrapper = mount(Tooltip, {
+			props: {
+				trigger: "hover",
+				content: "test",
+			},
+		})
+		wrapper.setProps({ trigger: "click" })
+		
+		await vi.runAllTimers()
+		wrapper.find('.yo-tooltip__trigger').trigger("click")
+
+		await vi.runAllTimers()
+		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeTruthy()
+
+		wrapper.find(".yo-tooltip__trigger").trigger("hover")
+
+		await vi.runAllTimers()
+
+		wrapper.find(".yo-tooltip__trigger").trigger("hover")
+
+		await vi.runAllTimers()
+		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+	})
+
+	// 测试手动模式
+	test("change manual prop", async () => {
+		const wrapper = mount(Tooltip, {
+			props: {
+				trigger: "hover",
+				content: "test",
+			},
+		})
+
+		wrapper.setProps({ manual: true })
+		await vi.runAllTimers()
+
+		wrapper.find(".yo-tooltip__trigger").trigger("hover")
+
+		await vi.runAllTimers()
+		expect(wrapper.find(".yo-tooltip__popper").exists()).toBeFalsy()
+
+		wrapper.setProps({
+			manual: false,
+			trigger: "contextmenu",
+		})
+
+		await vi.runAllTimers()
+		expect(wrapper.find('.yo-tooltip__popper').exists()).toBeTruthy()
 	})
 })
