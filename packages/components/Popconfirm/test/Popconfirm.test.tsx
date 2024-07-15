@@ -94,7 +94,7 @@ describe("Popconfirm", () => {
 		// 点击了trigger按钮后, popconfirm弹出
 		triggerNode.trigger('click')
 		await vi.runAllTimers()
-		expect(wrapper.find('.yo-popconfirm').exists).toBeTruthy()
+		expect(wrapper.find('.yo-popconfirm').exists()).toBeTruthy()
 
 		// popconfim弹出后, confirm按钮和cancel按钮存在
 		const confirmButton = wrapper.find('.yo-popconfirm__action__confirm')
@@ -103,7 +103,7 @@ describe("Popconfirm", () => {
 		// 点击了confirm按钮后, popconfirm消失, 动画完毕后, popconfirm也会消失, 并且此过程中, onConfirm被调用了依次
 		confirmButton.trigger('click')
 		await vi.runAllTimers()
-		expect(wrapper.find('.yo-popconfirm').exists).toBeFalsy()
+		expect(wrapper.find('.yo-popconfirm').exists()).toBeFalsy()
 		expect(onConfirm).toBeCalled()
 	})
 })
