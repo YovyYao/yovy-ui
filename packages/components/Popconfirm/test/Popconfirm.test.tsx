@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Popconfirm from '../Popconfirm.vue';
-import type { PopconfirmProps } from '../types/indxe';
+import type { PopconfirmProps } from '../types';
 import { each, get } from 'lodash-es';
 
 describe("Popconfirm", () => {
