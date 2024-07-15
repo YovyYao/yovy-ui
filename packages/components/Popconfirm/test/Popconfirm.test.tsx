@@ -97,7 +97,7 @@ describe("Popconfirm", () => {
 		expect(wrapper.find('.yo-popconfirm').exists).toBeTruthy()
 
 		// popconfim弹出后, confirm按钮和cancel按钮存在
-		const confirmButton = wrapper.find('.yo-popconfirm__confirm')
+		const confirmButton = wrapper.find('.yo-popconfirm__action__confirm')
 		expect(confirmButton.exists()).toBeTruthy()
 
 		// 点击了confirm按钮后, popconfirm消失, 动画完毕后, popconfirm也会消失, 并且此过程中, onConfirm被调用了依次

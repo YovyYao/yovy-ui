@@ -67,6 +67,7 @@ function cancel(e: MouseEvent) {
 						size="small"
 						:type="confirmButtonType"
 						@click="confirm"
+						class="yo-popconfirm__action__confirm"
 					>
 						{{ confirmButtonText }}
 					</yo-button>
@@ -74,6 +75,7 @@ function cancel(e: MouseEvent) {
 						size="small"
 						:type="cancelButtonType"
 						@click="cancel"
+						class="yo-popconfirm__action__cancel"
 					>
 						{{ cancelButtonText }}
 					</yo-button>
