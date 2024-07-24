@@ -6,6 +6,7 @@ export type DropdownCommand = string | number
 
 // 下拉菜单的每一项
 export interface DropdownItemProps {
+	// Dropdown所包含的每一个Item都有command，当Item每点击时触发
 	command?: DropdownCommand
 	// 每一项的名称
 	label?: string | VNode
@@ -24,15 +25,18 @@ export interface DropdownProps extends TooltipProps {
 	size?: ButtonSize
 	// Dropdown作为DropdownItem的容器, 它所存储的东西一定是DropdownItemProps类型的
 	items?: DropdownItemProps[]
+	// 是否点击隐藏/展开下拉菜单
 	hideOnClick?: boolean
-	// 是否展示下拉菜单的按钮和文字
+	// 是否将按钮和文字分开
 	splitButton?: boolean
 }
 
 export interface DropdownEmits {
 	// 当下拉菜单隐藏或展示时会触发
 	(e: 'visible-change', value: boolean): void
+	// 
 	(e: 'command', value: DropdownCommand): void
+	// Dropdown所包裹的item的点击事件
 	(e: 'click', value: MouseEvent): void
 }
 
