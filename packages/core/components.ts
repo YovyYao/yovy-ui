@@ -9,6 +9,8 @@ import {
 	YoAlert,
 	YoTooltip,
 	YoPopconfirm,
+	YoDropdown,
+	YoDropdownItem,
 } from '@yovy-ui/components';
 
 export default [
@@ -20,4 +22,6 @@ export default [
 	YoAlert,
 	YoTooltip,
 	YoPopconfirm,
+	YoDropdown,
+	YoDropdownItem,
 ] as Plugin[]
