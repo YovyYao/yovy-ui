@@ -59,7 +59,7 @@ describe('Dropdown', () => {
 				trigger: 'click',
 			},
 			slots: {
-				deafult: () => <div>Default slot</div>,
+				default: () => <div>Default slot</div>,
 				dropdown: () => items.map(item => <DropdownItem {...item} />)
 			}
 		})
@@ -86,7 +86,7 @@ describe('Dropdown', () => {
 				onCommand,
 			},
 			slots: {
-				default: () => <button id='trigger'>Default slot content</button>,
+				default: () => <button id='trigger'>Default slot</button>,
 				dropdown: () => items.map(item => <DropdownItem {...item} />),
 			},
 		})
@@ -97,7 +97,7 @@ describe('Dropdown', () => {
 
 		// 点击触发区域, 展示下拉菜单, 预期yo-dropdown__menu存在
 		triggerArea.trigger('click')
-		await vi.runAllTicks()
+		await vi.runAllTimers()
 		expect(wrapper.find('.yo-dropdown__menu').exists()).toBeTruthy()
 
 		// 找到下拉菜单的所有项目, 将第一个项目触发click, 预期该项目没有触发onCommand事件

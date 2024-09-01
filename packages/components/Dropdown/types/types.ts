@@ -9,7 +9,7 @@ export interface DropdownItemProps {
 	// Dropdown所包含的每一个Item都有command，当Item每点击时触发
 	command?: DropdownCommand
 	// 每一项的名称
-	label?: string | VNode
+	label: string | VNode
 	// 该项是否可点击
 	disabled?: boolean
 	// 是否需要每一项之间的分隔符
@@ -46,6 +46,6 @@ export interface DropdownInstance {
 }
 
 export interface DropdownContext {
-	handleItenClick(item: DropdownItemProps): void
+	handleItemClick(item: DropdownItemProps): void
 	size: ComputedRef<ButtonSize | void>
 }

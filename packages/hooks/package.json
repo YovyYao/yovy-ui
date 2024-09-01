@@ -5,15 +5,6 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.d.ts"
-    }
-  },
   "scripts": {
     "test": "vitest --coverage"
   },
