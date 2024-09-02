@@ -114,6 +114,9 @@ importers:
       vue-tsc:
         specifier: 1.8.27
         version: 1.8.27(typescript@5.2.2)
+      vue3-i18n:
+        specifier: ^1.1.5
+        version: 1.1.5(vue@3.4.27(typescript@5.2.2))
 
   packages/components: {}
 
@@ -5940,6 +5943,11 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: '*'
+
+  vue3-i18n@1.1.5:
+    resolution: {integrity: sha512-DN5XfE0z6BnFxjbP/qW8AKI5QCex97L2l8z7G76ccTkfTsJ18n4mXGCy4K9H2rm4FlzDx/USPlPqQK64yXQqDg==}
+    peerDependencies:
+      vue: ^3.0.0
 
   vue@3.4.27:
     resolution: {integrity: sha512-8s/56uK6r01r1icG/aEOHqyMVxd1bkYcSe9j8HcKtr/xTOFWvnzIVTehNW+5Yt89f+DLBe4A569pnZLS5HzAMA==}
@@ -12779,6 +12787,10 @@ snapshots:
       '@vue/language-core': 1.8.27(typescript@5.4.5)
       semver: 7.6.2
       typescript: 5.4.5
+
+  vue3-i18n@1.1.5(vue@3.4.27(typescript@5.2.2)):
+    dependencies:
+      vue: 3.4.27(typescript@5.2.2)
 
   vue@3.4.27(typescript@5.2.2):
     dependencies:
