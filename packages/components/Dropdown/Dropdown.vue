@@ -16,6 +16,8 @@ import YoTooltip from '../Tooltip/Tooltip.vue';
 
 import { DROPDOWN_CTX_KEY } from './constant';
 
+import { useDisabledStyle } from '@yovy-ui/hooks';
+
 defineOptions({
 	name: 'YoDropdown',
 	inheritAttrs: false,
@@ -48,6 +50,8 @@ function handleItemClick(e: DropdownItemProps) {
 	props.hideOnClick && tooltipRef.value?.hide()
 	!isNil(e.command) && emits('command', e.command)
 }
+
+!TEST && useDisabledStyle()
 
 // 将inject的数据provide给Dropdown的每一个Item
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {

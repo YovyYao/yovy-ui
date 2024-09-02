@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type DropdownItemProps } from 'yovy-ui';
 </script>
 
 <template>
