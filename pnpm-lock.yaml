@@ -20,6 +20,9 @@ importers:
       '@yovy-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
+      '@yovy-ui/locale':
+        specifier: workspace:*
+        version: link:packages/locale
       '@yovy-ui/theme':
         specifier: workspace:*
         version: link:packages/theme
@@ -167,6 +170,8 @@ importers:
         version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.11.20)(@types/react@18.3.3)(async-validator@4.2.5)(postcss@8.4.38)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.14.0)(terser@5.31.1)(typescript@5.4.5)
 
   packages/hooks: {}
+
+  packages/locale: {}
 
   packages/play:
     devDependencies:

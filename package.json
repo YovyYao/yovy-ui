@@ -54,6 +54,7 @@
     "@yovy-ui/hooks": "workspace:*",
     "@yovy-ui/theme": "workspace:*",
     "@yovy-ui/utils": "workspace:*",
+    "@yovy-ui/locale": "workspace:*",
     "jsdom": "^24.0.0",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.19",
