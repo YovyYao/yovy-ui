@@ -51,7 +51,7 @@ function handleItemClick(e: DropdownItemProps) {
 	!isNil(e.command) && emits('command', e.command)
 }
 
-!TEST && useDisabledStyle()
+useDisabledStyle()
 
 // 将inject的数据provide给Dropdown的每一个Item
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {
