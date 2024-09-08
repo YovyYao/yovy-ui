@@ -1,4 +1,4 @@
-import { makeInstaller } from '@yovy-ui/utils';
+import { makeInstaller } from './makeInstaller';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import components from './components';
@@ -15,3 +15,5 @@ const installer = makeInstaller(components)
 export * from "@yovy-ui/components"
 // 全局引入
 export default installer
+
+export * from '@yovy-ui/locale'
