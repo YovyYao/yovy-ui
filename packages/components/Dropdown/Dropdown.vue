@@ -37,10 +37,10 @@ const tooltipRef = ref<TooltipInstance>()
 // 类型为ButtonInstance的ref实例
 const triggerRef = ref<ButtonInstance>()
 
-const virtualRef = computed(() => triggerRef.value?.ref ?? void 0)
+// const virtualRef = computed(() => triggerRef.value?.ref ?? void 0)
 // 对于tooltip, 它并不需要知道Dropdown的type、size、items、hideOnClick、splitButton属性
 // tooltip的作用是展示下拉菜单和确认取消操作
-const tooltipProps = computed(() => omit(props, ['type', 'size', 'items', 'hideOnClick', 'splitButton']))
+const tooltipProps = computed(() => omit(props, ['type', 'size', 'items', 'hideAfterClick', 'splitButton']))
 
 /**
  * 处理被点击的那一项
@@ -51,7 +51,7 @@ function handleItemClick(e: DropdownItemProps) {
 	!isNil(e.command) && emits('command', e.command)
 }
 
-useDisabledStyle()
+!TEST && useDisabledStyle()
 
 // 将inject的数据provide给Dropdown的每一个Item
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {
@@ -72,7 +72,7 @@ defineExpose<DropdownInstance>({
 			ref="tooltipRef"
 			v-bind="tooltipProps"
 			:virtual-triggering="splitButton"
-			:virtual-ref="virtualRef?.value"
+			:virtual-ref="triggerRef?.ref.value"
 			@visible-change="$emit('visible-change', $event)"
 		>
 			<yo-button-group

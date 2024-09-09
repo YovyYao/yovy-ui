@@ -1,10 +1,10 @@
-import { ref, getCurrentInstance, inject, computed, provide, unref, watch, mergeProps } from 'vue';
-import type { MaybeRef, Ref, App } from 'vue';
+import { ref, getCurrentInstance, inject, computed, provide, unref, watch } from 'vue';
+import type { MaybeRef, Ref, App, InjectionKey } from 'vue';
 import { type ConfigProviderContext, ConfigProviderContextKey } from '../constants';
 import { createI18n, i18nSymbol } from 'vue3-i18n';
 import type { TranslatePair } from '@yovy-ui/locale';
 import English from '@yovy-ui/locale/lang/en';
-import { extend, merge, values } from 'lodash-es';
+import { merge } from 'lodash-es';
 import { debugWarn } from '@yovy-ui/utils';
 
 // 全局语言配置(该值的初始值为空, 需要手动切换语言才会有值)
@@ -77,7 +77,10 @@ export function provideGloabalConfig(
 	// 更新配置
 	const oldConfig = instance ? useGlobalConfig() : void 0
 	// 获取app根组件中的provide函数(若没有, 则改为获取instance上的provide函数)
-	const provideFn = app?.provide ?? (instance ? provide : void 0)
+	// const provideFn = app?.provide ?? (instance ? provide : void 0)
+	function provideFn<T>(key: InjectionKey<T>, value: T): void {
+		provide(key, value)
+	}
 	
 	// 如果provideFn不存在, 则报错
 	if (!provideFn) {
@@ -86,16 +89,32 @@ export function provideGloabalConfig(
 	}
 
 	// 获取上下文(该上下文由旧配置和新配置组成)
-	const context = computed(() => {
-		const newConfig = unref(config)
-		if (!oldConfig?.value) return newConfig
-		return merge(oldConfig.value, newConfig)
-	})
+	// const context = computed(() => {
+	// 	const newConfig = unref(config)
+	// 	if (!oldConfig?.value) return newConfig
+	// 	return merge(oldConfig.value, newConfig)
+	// })
+	const context = ref(unref(config))
+	watch(
+		() => config,
+		value => {
+			const newConfig = unref(value)
+			if (!oldConfig?.value) return newConfig
+			context.value = merge(oldConfig.value, newConfig)
+		},
+		{ deep: true }
+	)
 
-	const i18n = computed(() => _createI18n(context.value))
+	// const i18n = computed(() => _createI18n(context.value))
+	const i18n = ref(_createI18n(context.value))
+	watch(
+		() => context.value,
+		value => (i18n.value = _createI18n(value)),
+		{ deep: true }
+	)
 
 	provideFn(ConfigProviderContextKey, context)
-	provideFn(i18nSymbol, i18n.value)
+	provideFn(i18nSymbol, i18n)
 
 	// 如果是全局挂载, 则需要用use()
 	if (app) app.use(i18n.value)

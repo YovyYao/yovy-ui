@@ -4,5 +4,5 @@ export interface ConfigProviderProps {
 	// 哪种语言
 	locale?: Language
 	// 对应语言的翻译
-	extends?: TranslatePair
+	extendsI18nMessage?: TranslatePair
 }
