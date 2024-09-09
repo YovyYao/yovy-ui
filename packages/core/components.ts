@@ -9,8 +9,8 @@ import {
 	YoAlert,
 	YoTooltip,
 	YoPopconfirm,
-	// YoDropdown,
-	// YoDropdownItem,
+	YoDropdown,
+	YoDropdownItem,
 	YoConfigProvider,
 } from '@yovy-ui/components';
 
@@ -23,7 +23,7 @@ export default [
 	YoAlert,
 	YoTooltip,
 	YoPopconfirm,
-	// YoDropdown,
-	// YoDropdownItem,
+	YoDropdown,
+	YoDropdownItem,
 	YoConfigProvider,
 ] as Plugin[]
