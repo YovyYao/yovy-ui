@@ -8,7 +8,7 @@ import { eventListener } from './eventListener';
  */
 export function clickOutsideElement(
 	elementRef: Ref<HTMLElement | void>,
-	callback: (e: Event) => any
+	callback: (e: Event) => void
 ) {
 	eventListener(document, 'click', (e: Event) => {
 		if (elementRef.value && e.target) {

@@ -5,4 +5,4 @@ import { withInstall } from '@yovy-ui/utils';
 export const YoConfigProvider = withInstall(ConfigProvider)
 
 export * from './types'
-export * from './hooks'
+export * from './hook'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ConfigProviderProps } from './types';
-import { provideGloabalConfig } from './hooks';
+import { provideGloabalConfig } from './hook';
 // 该组件的意义在于, 
 
 defineOptions({

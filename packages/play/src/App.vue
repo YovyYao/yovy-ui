@@ -12,7 +12,7 @@
 
 <template>
   <div class="app">
-    <!-- <yo-button type="default" size="primary"> Test </yo-button>
+    <yo-button type="default" size="primary"> Test </yo-button>
     <yo-collapse  :modelValue="['a']">
       <yo-collapse-item title="标题1" name="a">
         <div>内容1</div>
@@ -30,7 +30,7 @@
     <yo-alert type="success" title="标题" description="描述" show-icon closeable visable> </yo-alert>
     <yo-tooltip content="提示文字" placement="top" trigger="hover">
       <button>Hover Me</button>
-    </yo-tooltip> -->
+    </yo-tooltip>
     <!-- <div class="row">
       <div class="col">
         <div class="desc">disabled</div>

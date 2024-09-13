@@ -2,12 +2,14 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 import { readdir, readdirSync } from 'fs';
 import { map, filter, delay, includes, defer } from 'lodash-es';
-import { build2rm } from './build2rm';
+// import { build2rm } from './build2rm';
 // import { build2rm } from '@yovy-ui/hooks';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import shell from 'shelljs';
 import terser from '@rollup/plugin-terser';
+
+import { build2rm } from '@yovy-ui/yovy-vite-plugin';
 
 const MOVE_STYLE_FILES_DELAY = 1000 as const
 
@@ -88,16 +90,16 @@ export default defineConfig({
 				comments: !isProd,
 			},
 			// 代码混淆
-			mangle: {
-				// 对顶级作用域的变量和函数名进行混淆
-				toplevel: isProd,
-				// 如果代码中包含eval，则需要开启此选项以正确处理
-				eval: isProd,
-				// 保留类名和函数名不被混淆
-				keep_classnames: isProd,
-				// 保留所有函数名不被混淆
-				keep_fnames: isDev,
-			},
+			// mangle: {
+			// 	// 对顶级作用域的变量和函数名进行混淆
+			// 	toplevel: isProd,
+			// 	// 如果代码中包含eval，则需要开启此选项以正确处理
+			// 	eval: isProd,
+			// 	// 保留类名和函数名不被混淆
+			// 	keep_classnames: isProd,
+			// 	// 保留所有函数名不被混淆
+			// 	keep_fnames: isDev,
+			// },
 		}),
 	],
 	build: {

@@ -10,6 +10,7 @@ import type { PopconfirmProps, PopconfirmEmits } from './types';
 import type { TooltipInstance } from '../Tooltip';
 
 // import { useLocale } from '@yovy-ui/hooks';
+// import { testFn } from '@yovy-ui/hooks';
 
 defineOptions({
 	name: 'YoPopconfirm'
@@ -55,7 +56,8 @@ function cancel(e: MouseEvent) {
 	hidePopper()
 }
 
-// const { t } = useLocale()
+// const { t } = useLocale().value
+// testFn()
 </script>
 
 <template>
@@ -73,7 +75,7 @@ function cancel(e: MouseEvent) {
 						@click="confirm"
 						class="yo-popconfirm__action__confirm"
 					>
-						{{ confirmButtonText }}
+						{{ confirmButtonText  }}
 					</yo-button>
 					<yo-button
 						size="small"
@@ -81,7 +83,7 @@ function cancel(e: MouseEvent) {
 						@click="cancel"
 						class="yo-popconfirm__action__cancel"
 					>
-						{{ cancelButtonText }}
+						{{ cancelButtonText  }}
 					</yo-button>
 				</div>
 			</div>

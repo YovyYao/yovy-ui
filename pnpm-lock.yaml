@@ -29,6 +29,9 @@ importers:
       '@yovy-ui/utils':
         specifier: workspace:*
         version: link:packages/utils
+      '@yovy-ui/yovy-vite-plugin':
+        specifier: workspace:*
+        version: link:libs/yovy-vite-plugins
       jsdom:
         specifier: ^24.0.0
         version: 24.1.0
@@ -111,6 +114,9 @@ importers:
       vite:
         specifier: 5.1.4
         version: 5.1.4(@types/node@20.11.20)(terser@5.31.1)
+      vite-plugin-dts:
+        specifier: ^3.9.1
+        version: 3.9.1(@types/node@20.11.20)(rollup@4.18.0)(typescript@5.2.2)(vite@5.1.4(@types/node@20.11.20)(terser@5.31.1))
       vitest:
         specifier: 1.4.0
         version: 1.4.0(@types/node@20.11.20)(jsdom@24.1.0)(terser@5.31.1)
@@ -120,6 +126,8 @@ importers:
       vue3-i18n:
         specifier: ^1.1.5
         version: 1.1.5(vue@3.4.27(typescript@5.2.2))
+
+  libs/yovy-vite-plugins: {}
 
   packages/components: {}
 
@@ -153,9 +161,6 @@ importers:
       vite-plugin-compression2:
         specifier: ^1.1.1
         version: 1.1.1(rollup@4.18.0)
-      vite-plugin-dts:
-        specifier: ^3.9.1
-        version: 3.9.1(@types/node@20.11.20)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.1(@types/node@20.11.20)(terser@5.31.1))
 
   packages/docs:
     devDependencies:
@@ -169,7 +174,14 @@ importers:
         specifier: ^1.0.0-rc.44
         version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.11.20)(@types/react@18.3.3)(async-validator@4.2.5)(postcss@8.4.38)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.14.0)(terser@5.31.1)(typescript@5.4.5)
 
-  packages/hooks: {}
+  packages/hooks:
+    dependencies:
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
+      vue:
+        specifier: ^3.4.27
+        version: 3.4.27(typescript@5.4.5)
 
   packages/locale: {}
 
@@ -5916,8 +5928,8 @@ packages:
   vue-component-type-helpers@2.0.22:
     resolution: {integrity: sha512-gPr2Ba7efUwy/Vfbuf735bHSVdN4ycoZUCHfypkI33M9DUH+ieRblLLVM2eImccFYaWNWwEzURx02EgoXDBmaQ==}
 
-  vue-component-type-helpers@2.1.4:
-    resolution: {integrity: sha512-aVqB3KxwpM76cYRkpnezl1J62E/1omzHQfx1yuz7zcbxmzmP/PeSgI20NEmkdeGnjZPVzm0V9fB4ZyRu5BBj4A==}
+  vue-component-type-helpers@2.1.6:
+    resolution: {integrity: sha512-ng11B8B/ZADUMMOsRbqv0arc442q7lifSubD0v8oDXIFoMg/mXwAPUunrroIDkY+mcD0dHKccdaznSVp8EoX3w==}
 
   vue-demi@0.14.8:
     resolution: {integrity: sha512-Uuqnk9YE9SsWeReYqK2alDI5YzciATE0r2SkA6iMAtuXvNTMNACJLJEXNXaEy94ECuBe4Sk6RzRU80kjdbIo1Q==}
@@ -8393,7 +8405,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.27(typescript@5.2.2)
-      vue-component-type-helpers: 2.1.4
+      vue-component-type-helpers: 2.1.6
     transitivePeerDependencies:
       - encoding
       - prettier
@@ -8816,20 +8828,6 @@ snapshots:
       vue-template-compiler: 2.7.16
     optionalDependencies:
       typescript: 5.2.2
-
-  '@vue/language-core@1.8.27(typescript@5.4.5)':
-    dependencies:
-      '@volar/language-core': 1.11.1
-      '@volar/source-map': 1.11.1
-      '@vue/compiler-dom': 3.4.27
-      '@vue/shared': 3.4.27
-      computeds: 0.0.1
-      minimatch: 9.0.4
-      muggle-string: 0.3.1
-      path-browserify: 1.0.1
-      vue-template-compiler: 2.7.16
-    optionalDependencies:
-      typescript: 5.4.5
 
   '@vue/language-core@2.0.21(typescript@5.2.2)':
     dependencies:
@@ -12396,7 +12394,8 @@ snapshots:
 
   typescript@5.4.2: {}
 
-  typescript@5.4.5: {}
+  typescript@5.4.5:
+    optional: true
 
   uc.micro@1.0.6: {}
 
@@ -12578,18 +12577,18 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite-plugin-dts@3.9.1(@types/node@20.11.20)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.1(@types/node@20.11.20)(terser@5.31.1)):
+  vite-plugin-dts@3.9.1(@types/node@20.11.20)(rollup@4.18.0)(typescript@5.2.2)(vite@5.1.4(@types/node@20.11.20)(terser@5.31.1)):
     dependencies:
       '@microsoft/api-extractor': 7.43.0(@types/node@20.11.20)
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
-      '@vue/language-core': 1.8.27(typescript@5.4.5)
+      '@vue/language-core': 1.8.27(typescript@5.2.2)
       debug: 4.3.5
       kolorist: 1.8.0
       magic-string: 0.30.10
-      typescript: 5.4.5
-      vue-tsc: 1.8.27(typescript@5.4.5)
+      typescript: 5.2.2
+      vue-tsc: 1.8.27(typescript@5.2.2)
     optionalDependencies:
-      vite: 5.3.1(@types/node@20.11.20)(terser@5.31.1)
+      vite: 5.1.4(@types/node@20.11.20)(terser@5.31.1)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -12748,7 +12747,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.22: {}
 
-  vue-component-type-helpers@2.1.4: {}
+  vue-component-type-helpers@2.1.6: {}
 
   vue-demi@0.14.8(vue@3.4.27(typescript@5.4.5)):
     dependencies:
@@ -12785,13 +12784,6 @@ snapshots:
       '@vue/language-core': 1.8.27(typescript@5.2.2)
       semver: 7.6.2
       typescript: 5.2.2
-
-  vue-tsc@1.8.27(typescript@5.4.5):
-    dependencies:
-      '@volar/typescript': 1.11.1
-      '@vue/language-core': 1.8.27(typescript@5.4.5)
-      semver: 7.6.2
-      typescript: 5.4.5
 
   vue3-i18n@1.1.5(vue@3.4.27(typescript@5.2.2)):
     dependencies:

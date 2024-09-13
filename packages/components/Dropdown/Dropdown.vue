@@ -2,7 +2,9 @@
 import { computed, ref, provide } from 'vue';
 import { isNil, omit } from 'lodash-es';
 import type { TooltipInstance } from '../Tooltip/types';
-import { type ButtonInstance, YoButton, YoButtonGroup } from '../Button/index';
+import { type ButtonInstance } from '../Button/index';
+import YoButton from '../Button/Button.vue';
+import YoButtonGroup from '../Button/ButtonGroup.vue';
 import type {
 	DropdownProps,
 	DropdownEmits,
@@ -11,12 +13,12 @@ import type {
 	DropdownItemProps
 } from './types';
 
-import YoDropdownItem from './DropdownItem.vue';
-import YoTooltip from '../Tooltip/Tooltip.vue';
+// import { useDisabledStyle } from '@yovy-ui/hooks';
 
 import { DROPDOWN_CTX_KEY } from './constant';
 
-import { useDisabledStyle } from '@yovy-ui/hooks';
+import DropdownItem from './DropdownItem.vue';
+import YoTooltip from '../Tooltip/Tooltip.vue';
 
 defineOptions({
 	name: 'YoDropdown',
@@ -40,7 +42,7 @@ const triggerRef = ref<ButtonInstance>()
 // const virtualRef = computed(() => triggerRef.value?.ref ?? void 0)
 // 对于tooltip, 它并不需要知道Dropdown的type、size、items、hideOnClick、splitButton属性
 // tooltip的作用是展示下拉菜单和确认取消操作
-const tooltipProps = computed(() => omit(props, ['type', 'size', 'items', 'hideAfterClick', 'splitButton']))
+const tooltipProps = computed(() => omit(props, ['type', 'size', 'items', 'hideOnClick', 'splitButton']))
 
 /**
  * 处理被点击的那一项
@@ -51,7 +53,7 @@ function handleItemClick(e: DropdownItemProps) {
 	!isNil(e.command) && emits('command', e.command)
 }
 
-!TEST && useDisabledStyle()
+// useDisabledStyle()
 
 // 将inject的数据provide给Dropdown的每一个Item
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {
@@ -90,7 +92,7 @@ defineExpose<DropdownInstance>({
 				<div class="yo-dropdown__menu">
 					<slot name="dropdown">
 						<template v-for="item in items" :key="item.command">
-							<yo-dropdown-item v-bind="item"></yo-dropdown-item>
+							<dropdown-item v-bind="item"></dropdown-item>
 						</template>
 					</slot>
 				</div>
