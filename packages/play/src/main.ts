@@ -1,9 +1,9 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
-import YovyPlus from 'yovy-ui'
-import 'yovy-ui/dist/index.css'
+import YovyPlus, { zhCN } from 'yovy-ui';
+import 'yovy-ui/dist/index.css';
 
 createApp(App)
-	.use(YovyPlus)
+	.use(YovyPlus, { locale: zhCN })
 	.mount('#app')

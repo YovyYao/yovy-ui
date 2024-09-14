@@ -22,8 +22,8 @@ const tooltipRef = ref<TooltipInstance>()
 // Popconfirm的props
 const props = withDefaults(defineProps<PopconfirmProps>(), {
 	title: '默认文本',
-	confirmButtonText: 'Confirm',
-	cancelButtonText: 'Cancel',
+	// confirmButtonText: 'Confirm',
+	// cancelButtonText: 'Cancel',
 	confirmButtonType: 'primary',
 	cancelButtonType: 'info',
 	icon: 'question-circle',

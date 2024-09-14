@@ -81,9 +81,10 @@ export function provideGloabalConfig(
 	function provideFn<T>(key: InjectionKey<T>, value: T): void {
 		provide(key, value)
 	}
-	
+	console.log('app2: ', app);
 	// 如果provideFn不存在, 则报错
 	if (!provideFn) {
+		console.log('app: ', app);
 		debugWarn('provideGloabalConfig', 'provideGloabalConfig() can only be used inside setup()')
 		return
 	}

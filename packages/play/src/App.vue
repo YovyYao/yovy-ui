@@ -8,6 +8,25 @@ const items: DropdownItemProps[] = [
   {command: '4', label: '选项4'},
   {command: '5', label: '选项5', divided: true},
 ]
+
+import { jp, kr, en, zhCN, zhTW } from 'yovy-ui';
+import { get } from 'lodash-es';
+import { computed, ref } from 'vue';
+
+const language = ref('')
+const languageMap = {
+  jp,
+  kr,
+  en,
+  zhCN,
+  zhTW
+} as const
+
+const locale = computed(() => get(languageMap, language.value))
+const changeLanguage = () => {
+  const temp = ['zhCN', 'zhTW', 'kr', 'en', 'jp']
+  language.value = temp[(temp.indexOf(language.value) + 1) % temp.length]
+}
 </script>
 
 <template>
@@ -31,6 +50,7 @@ const items: DropdownItemProps[] = [
     <yo-tooltip content="提示文字" placement="top" trigger="hover">
       <button>Hover Me</button>
     </yo-tooltip>
+    <!-- Dropdown组件展示 -->
     <div class="row">
       <div class="col">
         <div class="desc">disabled</div>
@@ -51,6 +71,14 @@ const items: DropdownItemProps[] = [
         </yo-dropdown>
       </div>
     </div>
+
+    <!-- ConfigProvider组件展示 -->
+    <yo-button @click="changeLanguage" type="info">切换语言</yo-button>
+    <yo-config-provider :locale="locale">
+      <yo-popconfirm title="Are you sure to delete this item?">
+        <yo-button>Delete</yo-button>
+      </yo-popconfirm>
+    </yo-config-provider>
   </div>
 </template>
 
