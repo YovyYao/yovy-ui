@@ -1,6 +1,6 @@
-export * from './viteConfigBuildPlugin'
+// export * from './useViteConfigBuildPlugin'
 export * from './useId'
 export * from './useDisabledStyle'
 export * from './useLocale'
 
-export * from './testDemo'
+export * from './useTestDemo'

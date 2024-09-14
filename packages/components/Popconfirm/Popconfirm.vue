@@ -9,7 +9,7 @@ import YoIcon from '../Icon/Icon.vue';
 import type { PopconfirmProps, PopconfirmEmits } from './types';
 import type { TooltipInstance } from '../Tooltip';
 
-// import { useLocale } from '@yovy-ui/hooks';
+import { useLocale } from '@yovy-ui/hooks';
 // import { testFn } from '@yovy-ui/hooks';
 
 defineOptions({
@@ -56,7 +56,7 @@ function cancel(e: MouseEvent) {
 	hidePopper()
 }
 
-// const { t } = useLocale().value
+const { t } = useLocale().value
 // testFn()
 </script>
 
@@ -75,7 +75,7 @@ function cancel(e: MouseEvent) {
 						@click="confirm"
 						class="yo-popconfirm__action__confirm"
 					>
-						{{ confirmButtonText  }}
+						{{ confirmButtonText || t('popconfirm.confirmButtonText') }}
 					</yo-button>
 					<yo-button
 						size="small"
@@ -83,7 +83,7 @@ function cancel(e: MouseEvent) {
 						@click="cancel"
 						class="yo-popconfirm__action__cancel"
 					>
-						{{ cancelButtonText  }}
+						{{ cancelButtonText || t('popconfirm.cancelButtonText') }}
 					</yo-button>
 				</div>
 			</div>

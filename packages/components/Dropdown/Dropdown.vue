@@ -13,7 +13,7 @@ import type {
 	DropdownItemProps
 } from './types';
 
-// import { useDisabledStyle } from '@yovy-ui/hooks';
+import { useDisabledStyle } from '@yovy-ui/hooks';
 
 import { DROPDOWN_CTX_KEY } from './constant';
 
@@ -53,7 +53,7 @@ function handleItemClick(e: DropdownItemProps) {
 	!isNil(e.command) && emits('command', e.command)
 }
 
-// useDisabledStyle()
+useDisabledStyle()
 
 // 将inject的数据provide给Dropdown的每一个Item
 provide<DropdownContext>(DROPDOWN_CTX_KEY, {

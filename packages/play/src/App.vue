@@ -1,13 +1,13 @@
 <script setup lang="ts">
-// import { type DropdownItemProps } from 'yovy-ui';
+import { type DropdownItemProps } from 'yovy-ui';
 
-// const items: DropdownItemProps[] = [
-//   {command: '1', label: '选项1'},
-//   {command: '2', label: '选项2'},
-//   {command: '3', label: '选项3', disabled: true},
-//   {command: '4', label: '选项4'},
-//   {command: '5', label: '选项5', divided: true},
-// ]
+const items: DropdownItemProps[] = [
+  {command: '1', label: '选项1'},
+  {command: '2', label: '选项2'},
+  {command: '3', label: '选项3', disabled: true},
+  {command: '4', label: '选项4'},
+  {command: '5', label: '选项5', divided: true},
+]
 </script>
 
 <template>
@@ -31,7 +31,7 @@
     <yo-tooltip content="提示文字" placement="top" trigger="hover">
       <button>Hover Me</button>
     </yo-tooltip>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col">
         <div class="desc">disabled</div>
         <yo-dropdown :items="items" disabled>
@@ -50,7 +50,7 @@
           </span>
         </yo-dropdown>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 

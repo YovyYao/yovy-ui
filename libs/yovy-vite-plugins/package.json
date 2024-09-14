@@ -1,6 +1,6 @@
 {
 	"private": true,
-  "name": "yovy-vite-plugin",
+  "name": "@yovy-ui/yovy-vite-plugin",
   "version": "1.0.0",
   "description": "",
 	"type": "module",

@@ -23,10 +23,13 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-			external: ['vue', 'lodash-es'],
+			external: ['vue', 'lodash-es', 'vue3-i18n'],
 			output: {
 				manualChunks(id) {
-					if(includes(id, './package/hooks/use')) return first(split(last(split(id, '/')), '.'))
+					if (includes(id, '/packages/hooks/use')) {
+						console.log('----', id);
+						return first(split(last(split(id, '/')), '.'))
+					}
 				}
 			}
 		}

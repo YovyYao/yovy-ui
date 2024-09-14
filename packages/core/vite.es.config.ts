@@ -17,6 +17,9 @@ const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
 
+// const isProd = import.meta.env.MODE === 'production'
+// const isDev = import.meta.env.MODE === 'development'
+
 /**
  * 同步获取指定路径下的所有目录名. 使用readdirSync方法读取该路径下的所有文件和目录. 
  * 通过filter方法过滤出所有目录类型的条目, 并使用map方法将这些条目的名称提取出来, 

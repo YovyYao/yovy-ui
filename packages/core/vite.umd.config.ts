@@ -15,6 +15,9 @@ const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
 
+// const isProd = import.meta.env.MODE === 'production'
+// const isDev = import.meta.env.MODE === 'development'
+
 /**
  * 读取./dist/umd/index.css.gz文件, 并将./dist/umd/index.css文件移动到./dist/index.css. 
  * 将全局引入的全局样式移动到dist/index.css. 该样式是全局引入样式
