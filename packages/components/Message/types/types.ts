@@ -1,6 +1,8 @@
 import type { VNode, ComponentInternalInstance } from 'vue';
 
+// 
 export type MessageOptions = Partial<Omit<MessageProps, 'id'>>
+// 某些函数的参数的类型
 export type MessageParams = string | VNode | MessageOptions
 
 // Message弹窗
@@ -16,13 +18,13 @@ export interface MessageProps {
 	// 是否居中
 	center?: boolean
 	// 弹窗的类型
-	type?: messageType
+	type?: MessageType
 	// 弹窗距离顶部的距离
 	offset?: number
 	// 弹窗的层级
 	zIndex: number
 	// 动画名称
-	transisitionName?: string
+	transitionName?: string
 	// 弹窗关闭时的回调
 	onDestory(): void
 }
@@ -36,7 +38,7 @@ export const messageTypes = [
 	'danger',
 ] as const
 // messageTypes里的可选属性('info', 'success', 'warning', 'error', 'danger')
-export type messageType = (typeof messageTypes)[number]
+export type MessageType = (typeof messageTypes)[number]
 
 // 用于关闭某个Message的函数
 export interface MessageHandler {
@@ -46,20 +48,20 @@ export interface MessageHandler {
 // 用于关闭所有Message的函数
 export type MessageFn = {
 	(props: MessageParams): MessageHandler
-	closeAll(type?: messageType): void
+	closeAll(type?: MessageType): void
 }
 
 // 
 export type MessageFnType = (props: MessageParams) => MessageHandler
 
-// const a: MessageFnType = () => {
-// 	const res: MessageHandler = {
-// 		close: () => {
+const a: MessageFnType = (props: MessageParams) => {
+	const res: MessageHandler = {
+		close: () => {
 			
-// 		}
-// 	}
-// 	return res as MessageHandler
-// }
+		}
+	}
+	return res
+}
 
 // Message实例的接口(每一个实例都有closeAll()这个函数)
 export interface Message extends MessageFn {

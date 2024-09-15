@@ -1,5 +1,6 @@
 import { describe, test, expect } from 'vitest';
 import { nextTick } from 'vue';
+import { message, closeAll } from '../util/index';
 
 /**
  * 处理异步动画

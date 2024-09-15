@@ -1,7 +1,7 @@
 <script lang="ts">
 import { onMounted, ref, computed } from 'vue';
 import { delay } from 'lodash-es';
-import { iconTypeMap } from '@yovy-ui/utils';
+import { iconTypeMap, RenderVnode } from '@yovy-ui/utils';
 
 import YoIcon from '../Icon/Icon.vue';
 import type { MessageProps } from './types';
@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<MessageProps>(), {
 const visible = ref(false)
 const messageRef = ref<HTMLDivElement>()
 const iconName = computed(() => iconTypeMap.get(props.type) ?? 'circle-info')
+const boxHeight = ref(0)
 
 let timer: number
 // 开始倒计时
@@ -43,7 +44,9 @@ onMounted(() => {
 	startTimer()
 })
 
-
+defineExpose({
+	close
+})
 </script>
 
 <template>
