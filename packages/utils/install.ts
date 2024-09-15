@@ -1,7 +1,7 @@
 import type { App, Plugin } from 'vue';
 // import { each } from 'lodash-es';
 
-type SFCWithinstall<T> = T & Plugin
+type SFCWithInstall<T> = T & Plugin
 
 // /**
 //  * 遍历组件数组, 为每一个组件使用use函数, 以达到全局引入的目的
@@ -20,10 +20,23 @@ type SFCWithinstall<T> = T & Plugin
  * @returns 拥有install函数的组件对象
  */
 export const withInstall = <T>(component: T) => {
-	(component as SFCWithinstall<T>).install = (app: App) => {
+	(component as SFCWithInstall<T>).install = (app: App) => {
 		const name = (component as any).name
 		app.component(name, component as Plugin)
 	}
 
-	return component as SFCWithinstall<T>
+	return component as SFCWithInstall<T>
+}
+
+/**
+ * 为了能够让Message组件挂载到全局的app上, 需要使用此函数. 通过将Message的配置项放到app.config上, 从而达成Message全局挂载的目的.
+ * @param fn 一个拥有install函数的对象或组件
+ * @param name 给挂载到app的属性的名称
+ * @returns 返回一个SFCWithInstall类型的函数, 并在未来将会被调用
+ */
+export const withInstallFunction = <T>(fn: T, name: string) => {
+	(fn as SFCWithInstall<T>).install = (app: App) => {
+		app.config.globalProperties[name] = fn
+	}
+	return fn as SFCWithInstall<T>
 }

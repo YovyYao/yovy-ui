@@ -12,6 +12,7 @@ import {
 	YoDropdown,
 	YoDropdownItem,
 	YoConfigProvider,
+	YoMessage,
 } from '@yovy-ui/components';
 
 export default [
@@ -26,4 +27,5 @@ export default [
 	YoDropdown,
 	YoDropdownItem,
 	YoConfigProvider,
+	YoMessage,
 ] as Plugin[]

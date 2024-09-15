@@ -1,4 +1,4 @@
-import type { VNode, ComponentInternalInstance } from 'vue';
+import type { VNode, ComponentInternalInstance, Ref } from 'vue';
 
 // 
 export type MessageOptions = Partial<Omit<MessageProps, 'id'>>
@@ -85,6 +85,11 @@ export interface MessageInstance {
 	vm: ComponentInternalInstance
 	// 每一个Message实例的关闭函数
 	handler: MessageHandler
+}
+
+export interface MessageExpose {
+	close(): void
+	bottomOffset: Ref<number>
 }
 
 // 创建一个没有'onDestory' | 'id' | 'zIndex'的MessageProps
