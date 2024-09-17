@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import { onMounted, ref, computed, watch } from 'vue';
 import { bind, delay } from 'lodash-es';
 import { iconTypeMap, RenderVnode, addUnit } from '@yovy-ui/utils';
