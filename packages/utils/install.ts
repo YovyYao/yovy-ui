@@ -34,7 +34,7 @@ export const withInstall = <T>(component: T) => {
  * @param name 给挂载到app的属性的名称
  * @returns 返回一个SFCWithInstall类型的函数, 并在未来将会被调用
  */
-export const withInstallFunction = <T>(fn: T, name: string) => {
+export const globalMountWithInstall = <T>(fn: T, name: string) => {
 	(fn as SFCWithInstall<T>).install = (app: App) => {
 		app.config.globalProperties[name] = fn
 	}
