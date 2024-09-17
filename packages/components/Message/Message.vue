@@ -70,7 +70,7 @@ defineExpose<MessageExpose>({
 	<Transition
 		:name="transitionName"
 		@after-leave="!visible && onDestory()"
-		@enter="boxHeight = messageRef!.get"
+		@enter="boxHeight = messageRef!.getBoundingClientRect().height"
 	>
 		<div
 			ref="messageRef"
