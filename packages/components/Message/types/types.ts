@@ -54,14 +54,14 @@ export type MessageFn = {
 // 
 export type MessageFnType = (props: MessageParams) => MessageHandler
 
-const a: MessageFnType = (props: MessageParams) => {
-	const res: MessageHandler = {
-		close: () => {
+// const a: MessageFnType = (props: MessageParams) => {
+// 	const res: MessageHandler = {
+// 		close: () => {
 			
-		}
-	}
-	return res
-}
+// 		}
+// 	}
+// 	return res
+// }
 
 // Message实例的接口(每一个实例都有closeAll()这个函数)
 export interface Message extends MessageFn {
