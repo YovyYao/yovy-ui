@@ -13,10 +13,13 @@ import type {
 } from '../types';
 import { messageTypes } from '../types';
 import YoMessage from '../Message.vue'
-import { useId } from '@yovy-ui/hooks';
+import { useId, useZIndex } from '@yovy-ui/hooks';
 
 // 用于存放所有Message实例的数组
 const instanceArr: MessageInstance[] = shallowReactive([])
+
+// 设置Message组件的zIndex
+const { nextZIndex } = useZIndex()
 
 // Message实例的默认属性
 export const messageDefaults = {
@@ -36,7 +39,7 @@ const normalizedOptions = (options: MessageParams): CreateMessageProps => {
 		message: options
 	} : options
 	
-	return {...messageDefaults, ...newOptions} as CreateMessageProps
+	return { ...messageDefaults, ...newOptions } as CreateMessageProps
 }
 
 /**
@@ -61,7 +64,7 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
 	const newProps: MessageProps = {
 		...props,
 		id,
-		zIndex: 999,
+		zIndex: nextZIndex(),
 		onDestory: destory
 	}
 	// 构建虚拟DOM
