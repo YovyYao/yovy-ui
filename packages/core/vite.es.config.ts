@@ -67,7 +67,7 @@ export default defineConfig({
 				// 对函数参数进行重命名
 				arguments: isProd,
 				// 删除console.log等调试语句
-				drop_console: isProd && ["log"],
+				// drop_console: isProd && ["log"],
 				// 删除debugger语句
 				drop_debugger: isProd,
 				// 压缩的轮数，更多轮数可能带来更小的体积，但也增加构建时间

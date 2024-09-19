@@ -40,6 +40,8 @@ export const messageTypes = [
 // messageTypes里的可选属性('info', 'success', 'warning', 'error', 'danger')
 export type MessageType = (typeof messageTypes)[number]
 
+// const messageTest: MessageType = 'info'
+
 // 用于关闭某个Message的函数
 export interface MessageHandler {
 	close(): void

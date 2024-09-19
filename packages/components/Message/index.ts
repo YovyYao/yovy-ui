@@ -1,7 +1,7 @@
-import Message from './Message.vue';
+import { message } from './util/index';
 
 import { globalMountWithInstall } from '@yovy-ui/utils';
 
-export const YoMessage = globalMountWithInstall(Message, '$message')
+export const YoMessage = globalMountWithInstall(message, '$message')
 
 export * from './types'

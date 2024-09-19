@@ -1,4 +1,4 @@
-import { isVNode, render, h, shallowReactive } from 'vue';
+import { isVNode, render, h, shallowReactive, type VNode } from 'vue';
 import { isString, findIndex, get, set, each } from 'lodash-es';
 
 import type {
@@ -50,7 +50,7 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
 	// 该实例的唯一标识: id
 	const id = useId().value
 	// Message组件的容器
-	const container = document.createElement('div')
+	const container: Element = document.createElement('div')
 	// 用于销毁Message组件的函数
 	const destory = () => {
 		const index = findIndex(instanceArr, { id })
@@ -68,7 +68,7 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
 		onDestory: destory
 	}
 	// 构建虚拟DOM
-	const vnode = h(YoMessage, newProps)
+	const vnode: VNode = h(YoMessage, newProps)
 	// 渲染Message组件的容器和虚拟节点
 	render(vnode, container)
 	// 将该节点(HTML元素)挂载到容器上
@@ -97,8 +97,8 @@ const createMessage = (props: CreateMessageProps): MessageInstance => {
  * @param currentMessage 页面上的某个Message组件
  * @returns 
  */
-export function getLastMessageBottomOffset(currentMessage: MessageProps) {
-	const index = findIndex(instanceArr, { id: currentMessage.id })
+export function getLastMessageBottomOffset(this: MessageProps) {
+	const index = findIndex(instanceArr, { id: this.id })
 	if (index <= 0) return 0
 	
 	return get(instanceArr, [index - 1, 'vm', 'exposed', 'bottomOffset'])
@@ -114,7 +114,7 @@ export const message: MessageFn & Partial<Message> = (options = {}) => {
 	const normalized = normalizedOptions(options)
 	// 获得实例
 	const instance = createMessage(normalized)
-	// 返回Message的handler()????
+	// 返回Message的handler
 	return instance.handler
 }
 

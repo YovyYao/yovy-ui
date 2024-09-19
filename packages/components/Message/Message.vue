@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref, computed, watch } from 'vue';
+import { onMounted, ref, computed, watch, type Ref } from 'vue';
 import { bind, delay } from 'lodash-es';
 import { iconTypeMap, RenderVnode, addUnit } from '@yovy-ui/utils';
 import { useOffset } from '@yovy-ui/hooks';
 
 import YoIcon from '../Icon/Icon.vue';
 import type { MessageProps, MessageExpose } from './types';
-import { getLastMessageBottomOffset } from './util/core';
+import { getLastMessageBottomOffset } from './util';
 
 defineOptions({
 	name: "YoMessage"
@@ -22,14 +22,15 @@ const props = withDefaults(defineProps<MessageProps>(), {
 const visible = ref(false)
 const messageRef = ref<HTMLDivElement>()
 const iconName = computed(() => iconTypeMap.get(props.type) ?? 'circle-info')
-const boxHeight = ref(0)
+const containerHeight: Ref<number> = ref(0)
 const { topOffset, bottomOffset } = useOffset({
 	getLastBoxBottomOffset: bind(getLastMessageBottomOffset, props),
 	offset: props.offset,
-	boxHeight,
+	boxHeight: containerHeight,
 })
 const customStyle = computed(() => ({
-	top: addUnit(topOffset.value)
+	top: addUnit(topOffset.value),
+	zIndex: props.zIndex,
 }))
 
 let timer: number
@@ -55,14 +56,14 @@ onMounted(() => {
 })
 
 watch(visible, newValue => {
-	if(!newValue) boxHeight.value = -props.offset
+	if(!newValue) containerHeight.value = -props.offset
 })
 
 
 
 defineExpose<MessageExpose>({
 	close,
-	bottomOffset,
+	bottomOffset: bottomOffset as unknown as Ref<number>,
 })
 </script>
 
@@ -70,7 +71,7 @@ defineExpose<MessageExpose>({
 	<Transition
 		:name="transitionName"
 		@after-leave="!visible && onDestory()"
-		@enter="boxHeight = messageRef!.getBoundingClientRect().height"
+		@enter="containerHeight = messageRef!.getBoundingClientRect().height"
 	>
 		<div
 			ref="messageRef"
@@ -99,6 +100,6 @@ defineExpose<MessageExpose>({
 	</Transition>
 </template>
 
-<style lang="css" scoped>
+<style scoped>
 @import './style.css'
 </style>

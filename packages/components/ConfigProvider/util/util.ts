@@ -1,5 +1,5 @@
 import { ref, getCurrentInstance, inject, computed, provide, unref, watch } from 'vue';
-import type { MaybeRef, Ref, App, InjectionKey } from 'vue';
+import type { MaybeRef, Ref, App } from 'vue';
 import { type ConfigProviderContext, ConfigProviderContextKey } from '../constants';
 import { createI18n, i18nSymbol } from 'vue3-i18n';
 import type { TranslatePair } from '@yovy-ui/locale';
@@ -77,10 +77,11 @@ export function provideGloabalConfig(
 	// 更新配置
 	const oldConfig = instance ? useGlobalConfig() : void 0
 	// 获取app根组件中的provide函数(若没有, 则改为获取instance上的provide函数)
-	// const provideFn = app?.provide ?? (instance ? provide : void 0)
-	function provideFn<T>(key: InjectionKey<T>, value: T): void {
-		provide(key, value)
-	}
+	const provideFn = app?.provide ?? (instance ? provide : void 0)
+	console.log('provideFn: ', provideFn);
+	// function provideFn<T>(key: InjectionKey<T>, value: T): void {
+	// 	provide(key, value)
+	// }
 	console.log('app2: ', app);
 	// 如果provideFn不存在, 则报错
 	if (!provideFn) {

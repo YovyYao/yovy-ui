@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type DropdownItemProps } from 'yovy-ui';
+import { YoMessage } from '@yovy-ui/components';
 
 const items: DropdownItemProps[] = [
   {command: '1', label: '选项1'},
@@ -26,6 +27,36 @@ const locale = computed(() => get(languageMap, language.value))
 const changeLanguage = () => {
   const temp = ['zhCN', 'zhTW', 'kr', 'en', 'jp']
   language.value = temp[(temp.indexOf(language.value) + 1) % temp.length]
+}
+
+const open1 = () => {
+  YoMessage({
+    showClose: true,
+    message: 'this is a message',
+  })
+}
+const open2 = () => {
+  YoMessage({
+    showClose: true,
+    message: 'wow! success! ^_^ ',
+    type: 'success'
+  })
+}
+
+const open3 = () => {
+  YoMessage({
+    showClose: true,
+    message: 'warning! 0.0 ',
+    type: 'warning'
+  })
+}
+
+const open4 = () => {
+  YoMessage({
+    showClose: true,
+    message: 'error! X_X ',
+    type: 'error'
+  })
 }
 </script>
 
@@ -79,6 +110,12 @@ const changeLanguage = () => {
         <yo-button>Delete</yo-button>
       </yo-popconfirm>
     </yo-config-provider>
+
+    <!-- Message组件展示 -->
+    <yo-button :plan="true" @click="open1">Message</yo-button>
+    <yo-button :plan="true" @click="open2">Success</yo-button>
+    <yo-button :plan="true" @click="open3">Warning</yo-button>
+    <yo-button :plan="true" @click="open4">Error</yo-button>
   </div>
 </template>
 

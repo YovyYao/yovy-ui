@@ -1,12 +1,13 @@
 import { type Ref, computed } from 'vue';
 
-interface UseOffsetOptions {
+type UseOffsetOptions = {
 	offset: number
-	boxHeight: Ref<number>
-	getLastBoxBottomOffset: () => number
+	// 存在未知的错误(无法使用Ref<number>)
+	boxHeight: any
+	getLastBoxBottomOffset(): number
 }
 
-interface UseOffsetResult {
+type UseOffsetResult = {
 	topOffset: Ref<number>
 	bottomOffset: Ref<number>
 }
@@ -18,6 +19,6 @@ export function useOffset(options: UseOffsetOptions): UseOffsetResult {
 
 	return {
 		topOffset,
-		bottomOffset,
+		bottomOffset: bottomOffset as Ref<number>,
 	}
 }
