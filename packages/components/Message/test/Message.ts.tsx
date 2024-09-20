@@ -42,4 +42,17 @@ describe('Message', () => {
 		await asyncFn()
 		expect(document.querySelector('.yo-message')).toBeFalsy()
 	})
+
+	test('message offset', async () => {
+		message({ message: 'hello message', duration: 0, offset: 100 })
+		message({ message: 'hello message1', duration: 0, offset: 200 })
+
+		await asyncFn()
+		const elements = document.querySelectorAll('yo-message')
+		expect(elements.length).toBe(2)
+
+		expect(getTopValue(elements[0])).toBe(100)
+		expect(getTopValue(elements[1])).toBe(300)
+	})
+	
 })

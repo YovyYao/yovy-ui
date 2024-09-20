@@ -57,8 +57,8 @@ createApp(App)
 // console.log(typeof messageDefaults.type);
 
 // demo
-const temp = ref('string')
+// const temp = ref('string')
 
-const obj = {
-	temp: temp
-}
+// const obj = {
+// 	temp: temp
+// }
