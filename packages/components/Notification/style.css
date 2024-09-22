@@ -1,0 +1,93 @@
+.yo-notification {
+  --yo-notification-width: 330px;
+  --yo-notification-padding: 14px 26px 14px 13px;
+  --yo-notification-radius: 8px;
+  --yo-notification-shadow: var(--yo-box-shadow-light);
+  --yo-notification-border-color: var(--yo-border-color-lighter);
+  --yo-notification-icon-size: 24px;
+  --yo-notification-close-font-size: var(--yo-message-close-size, 16px);
+  --yo-notification-content-font-size: var(--yo-font-size-base);
+  --yo-notification-content-color: var(--yo-text-color-regular);
+  --yo-notification-title-font-size: 16px;
+  --yo-notification-title-color: var(--yo-text-color-primary);
+  --yo-notification-close-color: var(--yo-text-color-secondary);
+  --yo-notification-close-hover-color: var(--yo-text-color-regular)
+}
+.yo-notification {
+  display: flex;
+  width: var(--yo-notification-width);
+  padding: var(--yo-notification-padding);
+  border-radius: var(--yo-notification-radius);
+  box-sizing: border-box;
+  border: 1px solid var(--yo-notification-border-color);
+  position: fixed;
+  background-color: var(--yo-bg-color-overlay);
+  box-shadow: var(--yo-notification-shadow);
+  transition: opacity var(--yo-transition-duration),transform var(--yo-transition-duration),right var(--yo-transition-duration),top .4s,bottom var(--yo-transition-duration);
+  overflow-wrap: anywhere;
+  overflow: hidden;
+  z-index: 9999;
+  &.right {
+    right: 10px;
+  }
+  &.left {
+    left: 10px;
+  }
+  
+  .yo-notification__text {
+    margin: 0 10px;
+  }
+  .yo-notification__icon {
+    height: var(--yo-notification-icon-size);
+    width: var(--yo-notification-icon-size);
+    font-size: var(--yo-notification-icon-size);
+    color: var(--yo-notification-icon-color);
+  }
+
+  .yo-notification__title {
+    font-weight: 700;
+    font-size: var(--yo-notification-title-font-size);
+    line-height: var(--yo-notification-icon-size);
+    color: var(--yo-notification-title-color);
+    margin: 0
+  }
+  .yo-notification__content {
+    font-size: var(--yo-notification-content-font-size);
+    line-height: 24px;
+    margin: 6px 0 0;
+    color: var(--yo-notification-content-color);
+    text-align: justify
+  }
+  .yo-notification__close {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+    color: var(--yo-notification-close-color);
+    font-size: var(--yo-notification-close-font-size)
+  }
+}
+@each $val in info,success,warning,danger { 
+  .yo-notification--$(val) {
+    --yo-notification-icon-color: var(--yo-color-$(val));
+    color: var(--el-notification-icon-color);
+  }
+}
+.yo-notification--error {
+  --yo-notification-icon-color: var(--yo-color-danger);
+  color: var(--el-notification-icon-color);
+}
+
+.yo-notification-fade-enter-from {
+  &.right {
+    right: 0;
+    transform: translate(100%);
+  }
+  &.left {
+    left: 0;
+    transform: translate(-100%);
+  }
+}
+.yo-notification-fade-leave-to {
+  opacity: 0;
+}
