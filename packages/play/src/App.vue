@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type DropdownItemProps } from 'yovy-ui';
-import { YoMessage } from '@yovy-ui/components';
+import { YoMessage, YoNotification } from '@yovy-ui/components';
+import { h } from 'vue';
 
 const items: DropdownItemProps[] = [
   {command: '1', label: '选项1'},
@@ -58,6 +59,23 @@ const open4 = () => {
     type: 'error'
   })
 }
+
+function openNotification1() {
+  YoNotification({
+    title: "标题1",
+    message: h('i', { style: 'color: teal' }, '这是一个通知'),
+    position: 'bottom-left'
+  })
+}
+
+function openNotification2() {
+  YoNotification({
+    title: "标题2",
+    message: h('i', { style: 'color: teal' }, '这是一个通知'),
+    position: 'bottom-right'
+  })
+}
+
 </script>
 
 <template>
@@ -116,6 +134,9 @@ const open4 = () => {
     <yo-button :plan="true" @click="open2">Success</yo-button>
     <yo-button :plan="true" @click="open3">Warning</yo-button>
     <yo-button :plan="true" @click="open4">Error</yo-button>
+
+    <yo-button @click="openNotification1" plain>Close automatically</yo-button>
+    <yo-button @click="openNotification2" plain>Close without automatically</yo-button>
   </div>
 </template>
 
