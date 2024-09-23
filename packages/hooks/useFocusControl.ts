@@ -1,6 +1,7 @@
 import { isFunction } from 'lodash-es';
 import type { Ref } from 'vue';
 import { ref, getCurrentInstance } from 'vue';
+import { useEventListener } from './useEventListener';
 
 interface UseFocusControlOptions {
 	afterFocus?: () => void;
@@ -10,7 +11,7 @@ interface UseFocusControlOptions {
 
 function useFocusControl<T extends HTMLElement | { focus(): void }>(
 	target: Ref<T | void>,
-	{ afterBlur, beforeBlur, afterFocus }: UseFocusControlOptions
+	{ afterBlur, beforeBlur, afterFocus }: UseFocusControlOptions = {}
 ) {
 	const instance = getCurrentInstance()!
 	const { emit } = instance
@@ -36,9 +37,12 @@ function useFocusControl<T extends HTMLElement | { focus(): void }>(
 		target.value?.focus()
 	}
 
+	useEventListener(wrapperRef, 'click', handleClick)
+
 	return {
 		wrapperRef,
 		isFocused,
 		handleFocus,
+		handleBlur,
 	}
 }
