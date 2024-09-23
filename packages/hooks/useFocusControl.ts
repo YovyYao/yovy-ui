@@ -9,7 +9,7 @@ interface UseFocusControlOptions {
 	afterBlur?: () => void;
 }
 
-function useFocusControl<T extends HTMLElement | { focus(): void }>(
+export function useFocusControl<T extends HTMLElement | { focus(): void }>(
 	target: Ref<T | void>,
 	{ afterBlur, beforeBlur, afterFocus }: UseFocusControlOptions = {}
 ) {
