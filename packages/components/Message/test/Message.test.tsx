@@ -1,21 +1,7 @@
 import { describe, test, expect } from 'vitest';
-import { nextTick } from 'vue';
-import { message, closeAll } from '../util/index';
+import { asyncFn } from '@yovy-ui/utils';
 
-/**
- * 处理异步动画
- * @returns 
- */
-const asyncFn = async () => {
-	return new Promise(res => {
-		requestAnimationFrame(() => {
-			requestAnimationFrame(async () => {
-				res(null)
-				await nextTick()
-			})
-		})
-	})
-}
+import { message, closeAll } from '../util/index';
 
 function getTopValue(e: Element) {
 	const styles = window.getComputedStyle(e)

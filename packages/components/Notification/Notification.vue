@@ -99,3 +99,7 @@ defineExpose<NotificationExpose>({
 		</div>
 	</transition>
 </template>
+
+<style scoped>
+@import './style.css'
+</style>
