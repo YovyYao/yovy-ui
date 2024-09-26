@@ -78,14 +78,11 @@ export function provideGloabalConfig(
 	const oldConfig = instance ? useGlobalConfig() : void 0
 	// 获取app根组件中的provide函数(若没有, 则改为获取instance上的provide函数)
 	const provideFn = app?.provide ?? (instance ? provide : void 0)
-	console.log('provideFn: ', provideFn);
 	// function provideFn<T>(key: InjectionKey<T>, value: T): void {
 	// 	provide(key, value)
 	// }
-	console.log('app2: ', app);
 	// 如果provideFn不存在, 则报错
 	if (!provideFn) {
-		console.log('app: ', app);
 		debugWarn('provideGloabalConfig', 'provideGloabalConfig() can only be used inside setup()')
 		return
 	}

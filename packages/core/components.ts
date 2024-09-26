@@ -14,6 +14,7 @@ import {
 	YoConfigProvider,
 	YoMessage,
 	YoNotification,
+	YoInput,
 } from '@yovy-ui/components';
 
 export default [
@@ -30,4 +31,5 @@ export default [
 	YoConfigProvider,
 	YoMessage,
 	YoNotification,
+	YoInput,
 ] as Plugin[]

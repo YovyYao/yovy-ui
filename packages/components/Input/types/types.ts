@@ -1,13 +1,16 @@
 import type { Ref } from "vue"
 
+export const inputTypeArr = ['text', 'password', 'textarea'] as const
+
 export interface InputProps {
 	id?: string
 	modelValue: string
-	type?: string
+	// type?: 'text' | 'password' | 'textarea'
+	type?: typeof inputTypeArr[number]
 	size?: 'large' | 'small'
 	disabled?: boolean
 	clearable?: boolean
-	showPassword?: boolean
+	isShowPassword?: boolean
 	placeholder?: string
 	readonly?: boolean
 	autocomplete?: string
@@ -26,7 +29,7 @@ export interface InputEmits {
 
 export interface InputInstance {
 	ref: Ref<HTMLInputElement | HTMLTextAreaElement | void>
-	foucs(): void
+	focus(): void
 	blur(): void
 	select(): void
 	clear(): void
